@@ -82,6 +82,26 @@ return [
 
     'locale' => 'en',
 
+    'available_locales' => [
+        'en'    => 'English',
+        'pt_br' => 'Português (BR)',
+        'pt' => 'Português (PT)',
+        'es'    => 'Español',
+        'it'    => 'Italiano',
+        'fr'    => 'Français',
+        'de'    => 'Deutsch'
+    ],
+
+    'flags_labels' => [
+        'en'    => 'https://img.icons8.com/color/48/usa.png',
+        'pt_br' => 'https://img.icons8.com/color/48/brazil.png',
+        'pt'    => 'https://img.icons8.com/color/48/portugal.png',
+        'es'    => 'https://img.icons8.com/color/48/spain.png',
+        'it'    => 'https://img.icons8.com/color/48/italy.png',
+        'fr'    => 'https://img.icons8.com/color/48/france.png',
+        'de'    => 'https://img.icons8.com/color/48/germany.png',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -231,5 +251,4 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
 ];

@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
+use Prologue\Alerts\Facades\Alert;
 
 // --------------------------
 // Custom Backpack Routes
@@ -15,5 +19,6 @@ Route::group([
         (array) config('backpack.base.middleware_key', 'admin')
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
-], function () { // custom admin routes
+], function () {
+    Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set.language');
 }); // this should be the absolute last line of this file
