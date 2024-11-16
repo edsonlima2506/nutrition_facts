@@ -1,0 +1,40 @@
+/* IMPORTANT!! */
+/* After making changes in this file, run the command 'npm run prod' to update */
+
+.sidebar {
+    background-color: #334257 !important;
+}
+
+.sidebar .nav-item .nav-link {
+    color: #ffffff !important;
+}
+
+.sidebar .nav-link .nav-icon {
+    color: #ffffff;
+}
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .nav-item .nav-link.active {
+    background-color: #455467 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.sidebar .nav-item .nav-link:hover .nav-icon,
+.sidebar .nav-item .nav-link.active .nav-icon {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.sidebar .sidebar-social {
+    margin-top: auto;
+    padding-inline: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+  
+.sidebar .sidebar-social .icon {
+    color: white !important;
+    font-size: 24px;
+    text-decoration: none;
+}

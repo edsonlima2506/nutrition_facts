@@ -38,3 +38,9 @@
         </ul>
     </li>
 @endif
+
+<div class="sidebar-social">
+    <a href="#" class="icon"><i class="lab la-youtube"></i></a>
+    <a href="#" class="icon"><i class="lab la-instagram"></i></a>
+    <a href="#" class="icon"><i class="lab la-facebook-square"></i></a>
+</div>
