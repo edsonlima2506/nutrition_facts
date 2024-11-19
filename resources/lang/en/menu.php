@@ -5,5 +5,7 @@ return [
     'users'         =>  'Users',
     'roles'         =>  'Roles',
     'permissions'   =>  'Permissions',
-    'admin'         =>  'Admin'
+    'admin'         =>  'Admin',
+    'companies'     =>  'Companies',
+    'my_company'    =>  'My company'
 ];

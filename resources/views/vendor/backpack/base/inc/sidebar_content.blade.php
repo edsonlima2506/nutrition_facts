@@ -39,6 +39,14 @@
     </li>
 @endif
 
+@if (backpack_user()->can('access_companies'))
+    <li class='nav-item'>
+        <a class='nav-link' href='{{ backpack_url('company') }}'>
+            <i class="nav-icon las la-store-alt"></i> {{ trans('menu.companies') }}
+        </a>
+    </li>
+@endcan
+
 <div class="sidebar-social">
     <a href="#" class="icon"><i class="lab la-youtube"></i></a>
     <a href="#" class="icon"><i class="lab la-instagram"></i></a>

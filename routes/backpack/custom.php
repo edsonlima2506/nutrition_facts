@@ -1,10 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CompanyCrudController;
 use App\Http\Controllers\LanguageController;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
-use Prologue\Alerts\Facades\Alert;
 
 // --------------------------
 // Custom Backpack Routes
@@ -18,7 +16,14 @@ Route::group([
         (array) config('backpack.base.web_middleware', 'web'),
         (array) config('backpack.base.middleware_key', 'admin')
     ),
-    'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
     Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('set.language');
+
+    Route::group([
+        'prefix' => 'company'
+    ], function() {
+        Route::crud('/', CompanyCrudController::class);
+        Route::get('/my-company/{company}', [CompanyCrudController::class, 'myCompany'])->name('company.my_company');
+        Route::post('/my-company/{company}', [CompanyCrudController::class, 'myCompanyUpdate'])->name('company.my_company.update');
+    });
 }); // this should be the absolute last line of this file

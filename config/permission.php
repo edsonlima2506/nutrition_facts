@@ -164,6 +164,9 @@ return [
         'access_users'          =>  ['super_admin'],
         'access_roles'          =>  ['super_admin'],
         'access_permissions'    =>  ['super_admin'],
-        'access_ingredients'    =>  ['super_admin', 'client']
+        'access_ingredients'    =>  ['super_admin', 'client'],
+
+        'access_companies'      =>  ['super_admin'],
+        'update_company'        =>  ['super_admin', 'client']
     ]
 ];

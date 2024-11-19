@@ -27,6 +27,39 @@
             background-color: #334257;
             color: #ffffff;
         }
+
+        .dashboard-row {
+            flex-wrap: nowrap;
+            gap: 5px;
+        }
+
+        .footer {
+            width: 100%;
+            height: 70px;
+            background-color: white
+        }
+
+        @media only screen and (max-width: 600px) {
+            .dashboard-row {
+                flex-wrap: wrap;
+            }
+
+            .navbar-brand {
+                display: none !important;
+            }
+
+            .fc-toolbar {
+                flex-direction: column;  /* Organiza os controles do calendário em coluna */
+            }
+            
+            .fc-view {
+                font-size: 12px;  /* Reduz o tamanho da fonte para caber melhor na tela */
+            }
+
+            .fc-day-grid-event {
+                font-size: 10px;  /* Ajusta o tamanho das fontes dos eventos */
+            }
+        }
     </style>
 @endpush
 
@@ -37,7 +70,7 @@
         </div>
 
         {{-- Cards first row --}}
-        <div class="row" style="flex-wrap: nowrap; gap: 5px">
+        <div class="row dashboard-row">
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #D8F2E9">
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>{{ trans('dashboard.recipes') }}</h3>
@@ -64,7 +97,7 @@
         </div>
         
         {{-- Cards second row --}}
-        <div class="row mt-2" style="flex-wrap: nowrap; gap: 5px">
+        <div class="row mt-2 dashboard-row">
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #e3cdff">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
@@ -92,7 +125,7 @@
         </div>
 
         {{-- Calendar --}}
-        <div class="row mt-5 mb-5" style="flex-wrap: nowrap; gap: 5px">
+        <div class="row mt-5 mb-5 dashboard-row">
             <div class="col-12 col-md-8 p-0 bg-white p-4 rounded shadow">
                 <div id="calendar"></div>
             </div>
@@ -133,7 +166,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth'
+                initialView: 'dayGridMonth',
+                windowResize: true
             });
             calendar.setOption('locale', locale.replace('_', '-'));
             calendar.render();
