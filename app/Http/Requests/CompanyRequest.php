@@ -14,11 +14,7 @@ class CompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        $company = Company::find($this->route('company'))->first();
- 
-        $user = backpack_user();
-
-        return $company && $user->can('update_company') && $user->company_id == $company->id;
+        return backpack_user()->can('update_company');
     }
 
     /**

@@ -49,15 +49,15 @@
             }
 
             .fc-toolbar {
-                flex-direction: column;  /* Organiza os controles do calendário em coluna */
+                flex-direction: column;
             }
             
             .fc-view {
-                font-size: 12px;  /* Reduz o tamanho da fonte para caber melhor na tela */
+                font-size: 12px;
             }
 
             .fc-day-grid-event {
-                font-size: 10px;  /* Ajusta o tamanho das fontes dos eventos */
+                font-size: 10px;
             }
         }
     </style>
@@ -136,16 +136,38 @@
                         <th ><i class="las la-clock"></i> {{ trans('dashboard.last_modifications') }}</th>
                     </thead>
                     <tbody>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
-                        <tr><td>Teste</td></tr>
+                        @php
+                            $companyId = backpack_user()->company_id;
+                            $userId = backpack_user()->id;
+                            
+                            if($companyId) {
+                                $histories = App\Models\History::companyId($companyId)
+                                    ->latest()
+                                    ->get()
+                                    ->take(10);
+                            } else {
+                                $histories = App\Models\History::userId($userId)
+                                    ->latest()
+                                    ->get()
+                                    ->take(10);
+                            }
+                        @endphp
+
+                        @forelse ($histories as $history)
+                            <tr>
+                                <td>
+                                    {{ App\Enum\HistoryOperation::from($history->operation)->getLabel() }}
+                                    {{ trans("crud.{$history->entity}.singular") }} -
+                                    {{ $history->entity_information }}
+                                    <br>
+                                    <i class="las la-user"></i> {{ optional($history->user)->name }}
+                                    <br>
+                                    <i class="las la-clock"></i> {{ Carbon\Carbon::parse($history->created_at)->format('d/m/Y H:i') }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr><td colspan="3">Nenhum histórico encontrado</td></tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
