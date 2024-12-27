@@ -143,9 +143,7 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        'all_fields_require' => 'Preencha todos os campos!',
     ],
 
     /*

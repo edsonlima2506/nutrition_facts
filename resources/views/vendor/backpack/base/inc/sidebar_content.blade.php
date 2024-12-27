@@ -47,6 +47,27 @@
     </li>
 @endcan
 
+@if (backpack_user()->can('access_ingredients'))
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon las la-bread-slice"></i> {{ trans('menu.ingredients.main') }}
+        </a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('ingredient') }}'>
+                    <i class="nav-icon las la-clipboard-list"></i> {{ trans('menu.ingredients.list') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('ingredient/create') }}'>
+                    <i class="nav-icon las la-plus-square"></i> {{ trans('menu.ingredients.new') }}
+                </a>
+            </li>
+        </ul>
+    </li>
+@endif
+
 <div class="sidebar-social">
     <a href="#" class="icon"><i class="lab la-youtube"></i></a>
     <a href="#" class="icon"><i class="lab la-instagram"></i></a>

@@ -71,6 +71,7 @@
 
         {{-- Cards first row --}}
         <div class="row dashboard-row">
+            {{-- RECIPES --}}
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #D8F2E9">
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>{{ trans('dashboard.recipes') }}</h3>
@@ -79,7 +80,8 @@
                 <h4 class="mt-2 font-weight-bold">12</h4>
             </a>
 
-            <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #D8F2E9">
+            {{-- INGREDIENTS --}}
+            <a href="{{ backpack_url('ingredient') }}" class="col-12 col-lg-4 p-3 info-container" style="background-color: #D8F2E9">
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>{{ trans('dashboard.ingredients') }}</h3>
                     <i class="las la-bread-slice"></i>
@@ -87,6 +89,7 @@
                 <h4 class="mt-2 font-weight-bold">12</h4>
             </a>
 
+            {{-- BEST SELLER --}}
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #D8F2E9">
                 <div class="d-flex align-items-center justify-content-between">
                     <h3>{{ trans('dashboard.best_seller') }}</h3>
@@ -98,6 +101,7 @@
         
         {{-- Cards second row --}}
         <div class="row mt-2 dashboard-row">
+            {{-- PRODUCTION --}}
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #e3cdff">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
@@ -107,6 +111,8 @@
                     <h3>10</h3>
                 </div>
             </a>
+
+            {{-- DELIVERIES --}}
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #e3cdff">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
@@ -116,6 +122,8 @@
                     <h3>10</h3>
                 </div>
             </a>
+
+            {{-- TUTORIAL --}}
             <a href="" class="col-12 col-lg-4 p-3 info-container" style="background-color: #e3cdff">
                 <div class="d-flex align-items-center">
                     <i class="lab la-youtube"></i>
@@ -144,12 +152,12 @@
                                 $histories = App\Models\History::companyId($companyId)
                                     ->latest()
                                     ->get()
-                                    ->take(10);
+                                    ->take(4);
                             } else {
                                 $histories = App\Models\History::userId($userId)
                                     ->latest()
                                     ->get()
-                                    ->take(10);
+                                    ->take(4);
                             }
                         @endphp
 
@@ -166,7 +174,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr><td colspan="3">Nenhum histórico encontrado</td></tr>
+                            <tr><td colspan="3">{{ trans('dashboard.no_history') }}</td></tr>
                         @endforelse
                     </tbody>
                 </table>

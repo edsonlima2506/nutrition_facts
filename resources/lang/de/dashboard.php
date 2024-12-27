@@ -8,5 +8,6 @@ return [
     'deliveries'            =>  'Lieferungen Heute',
     'production'            =>  'Produktionen Heute',
     'tutorial'              =>  'Tutorial-Videos',
-    'last_modifications'    =>  'Neueste Modifikationen'
+    'last_modifications'    =>  'Neueste Modifikationen',
+    'no_history'            =>  'Keine Historie gefunden'
 ];

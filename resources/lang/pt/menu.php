@@ -7,5 +7,10 @@ return [
     'permissions'   =>  'Permissões',
     'admin'         =>  'Administração',
     'companies'     =>  'Empresas',
-    'my_company'    =>  'Minha empresa'
+    'my_company'    =>  'Minha empresa',
+    'ingredients'   =>  [
+        'main'  =>  'Ingredientes',
+        'list'  =>  'Listar Ingredientes',
+        'new'   =>  'Registrar Novo'
+    ]
 ];

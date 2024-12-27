@@ -1,6 +1,38 @@
 /* IMPORTANT!! */
 /* After making changes in this file, run the command 'npm run prod' to update */
 
+:root {
+    --primary: #e3cdff;
+    --primary-link: #b179fa;
+    --primary-hover: #c9a4f8;
+    --dark: #334257;
+    --green: #98eee0;
+}
+
+.bg-primary, .btn-primary, .text-primary {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: var(--dark) !important;
+}
+
+.btn-link {
+    color: var(--primary-link) !important;
+}
+
+a {
+    color: var(--primary-link);
+}
+
+a.text-primary:hover, a.text-primary:focus {
+    color: var(--primary-hover) !important;
+}
+
 .sidebar {
     background-color: #334257 !important;
 }
