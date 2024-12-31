@@ -70,17 +70,26 @@
             $("#" + fieldId).val(JSON.stringify(values));
         }
 
-        function selectStorageOption(value, fieldId) {
-            let selectedValues = [];
+        function selectStorageOption(value, fieldId, selectOption) {
+            let selectedValues = JSON.parse($('#' + fieldId).val());
+            let customInput = $('#' + fieldId + '_custom');
 
-            if ($(this).hasClass("selected")) {
-                $(this).removeClass("selected");
+            if (selectOption.hasClass("selected")) {
+                selectOption.removeClass("selected");
                 selectedValues = selectedValues.filter(item => item !== value);
+
+                if (value == 'custom') {
+                    customInput.addClass('d-none');
+                }
             } else {
                 selectedValues.push(value);
+
+                if (value == 'custom') {
+                    customInput.removeClass('d-none');
+                }
             }
 
-            $(this).toggleClass("selected", selectedValues.includes(value));
+            selectOption.toggleClass("selected", selectedValues.includes(value));
 
             updateHiddenInput(fieldId, selectedValues);
         }
@@ -89,7 +98,7 @@
             const value = $(this).data("value");
             const fieldId = $(this).data("reference");
 
-            selectStorageOption(value, fieldId);
+            selectStorageOption(value, fieldId, $(this));
         });
     });
 </script>

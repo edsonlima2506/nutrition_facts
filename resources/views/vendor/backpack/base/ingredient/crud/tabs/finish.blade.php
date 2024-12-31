@@ -13,81 +13,46 @@
 <div>
     <div class="row mb-3">
         <div class="col-12 col-md-7">
-            <div class="row">
-                <div class="col-4">
+            <div class="finish-section">
+                <div class="d-flex mb-4">
                     <div class="image-upload">
-                        <i class="las la-cloud-upload-alt"></i>
+                        <i class="las la-camera-retro"></i>
+                    </div>
+                    <div class="ml-3">
+                        <div>
+                            <h3 id="ingredient_name_finish" class="mb-0">Gotas de Chocolate</h3>
+                            <span class="finish-info" id="ingredient_manufacturer_finish">Hersheys</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-8">
-                    <div>
-                        <label class="finish-label">
-                            Ingrediente:
-                            <span class="finish-info" id="ingredient_name_finish"></span>
-                        </label>
-                        <br>
-                        <label class="finish-label">
-                            Fabricante:
-                            <span class="finish-info" id="ingredient_manufacturer_finish"></span>
-                        </label>
-                        <br>
-                        <label class="finish-label">
-                            Fornecedor:
-                            <span class="finish-info" id="ingredient_supplier_finish"></span>
-                        </label>
-                        <br>
-                        <label class="finish-label">
-                            Preço:
-                            <span class="finish-info" id="unit_price_finish"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+    
+                <i class="las la-info"></i>
+                <span>{{ trans('crud.ingredient.steps.info.title') }}</span>
 
-            <div class="row mt-3">
-                <div class="col-6">
-                    {{-- INGREDIENTS --}}
-                    <div>
-                        <label class="finish-label">
-                            Ingredientes:
-                            <span class="finish-info" id="seccondary_ingredients_finish"></span>
-                        </label>
+                <div class="finish-section-row mt-2 mb-3">
+                    <div class="card-finish-container card-finish-container-left-border">
+                        <h5 class="card-finish-title">Fornecedor</h5>
+                        <h5 class="card-finish-content">Supermercado Pilar</h5>
                     </div>
-        
-                    {{-- ALLERGENS --}}
-                    <div>
-                        <label class="finish-label">
-                            Glúten:
-                            <span class="finish-info" id="gluten_finish"></span>
-                        </label>
+                    
+                    <div class="card-finish-container card-finish-container-left-border">
+                        <h5 class="card-finish-title">Preço</h5>
+                        <h5 class="card-finish-content">$7,50</h5>
                     </div>
-        
-                    <div>
-                        <label class="finish-label">
-                            Lactose:
-                            <span class="finish-info" id="lactose_finish"></span>
-                        </label>
+                </div>
+
+                <i class="las la-boxes"></i>
+                <span>{{ trans('crud.ingredient.steps.storage.title') }}</span>
+
+                <div class="finish-section-row mt-2">
+                    <div class="card-finish-container card-finish-container-left-border">
+                        <h5 class="card-finish-title">Embalagem Fechada</h5>
+                        <div>{{ trans('crud.ingredient.steps.storage.dry_fresh') }}</div>
                     </div>
-        
-                    <div>
-                        <label class="finish-label">
-                            Contém:
-                            <span class="finish-info" id="ingredient_allergens_finish"></span>
-                        </label>
-                    </div>
-        
-                    <div>
-                        <label class="finish-label">
-                            Contém derivados de:
-                            <span class="finish-info" id="ingredient_allergens_derivatives_finish"></span>
-                        </label>
-                    </div>
-        
-                    <div>
-                        <label class="finish-label">
-                            Pode conter:
-                            <span class="finish-info" id="ingredient_allergens_maycontain_finish"></span>
-                        </label>
+                    
+                    <div class="card-finish-container card-finish-container-left-border">
+                        <h5 class="card-finish-title">Embalagem Aberta</h5>
+                        <div>{{ trans('crud.ingredient.steps.storage.dry_fresh') }}</div>
                     </div>
                 </div>
             </div>

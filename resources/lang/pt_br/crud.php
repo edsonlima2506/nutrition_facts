@@ -88,6 +88,14 @@ return [
                 'sub_title'             =>  'Etapa 3: Conservação',
                 'closed_package_label'  =>  'Conservação Embalagem Fechada',
                 'opened_package_label'  =>  'Conservação Embalagem Aberta',
+                'storage_place'         =>  'Local de Armazenamento',
+                'storage_temperature'   =>  'Temperatura de Armazenamento',
+                
+                'dry_fresh'             =>  'Seco e Fresco',
+                'sheltered_the_sun'     =>  'Ao abrigo do Sol',
+                'refrigerator'          =>  'Geladeira',
+                'freezer'               =>  'Congelador',
+                'custom'                =>  'Personalizado'
             ],
             'allergens'     =>  [
                 'title'                     =>  'Alérgenos',

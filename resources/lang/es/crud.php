@@ -34,25 +34,62 @@ return [
             'allergens'                 =>  'Alérgenos'
         ],
         'steps'     =>  [
-            'info'          =>  [
-                'title'         =>  'Información',
-                'sub_title'     =>  'Paso 1: Información Básica',
-                'name'          =>  'Nombre del Ingrediente',
-                'manufacturer'  =>  'Fabricante',
-                'price'         =>  'Precio',
+            'info' => [
+                'title'             => 'Información',
+                'sub_title'         => 'Etapa 1: Información Básica',
+                'name'              => 'Nombre del Ingrediente',
+                'manufacturer'      => 'Fabricante',
+                'supplier'          => 'Proveedor',
+
+                'price'             => 'Precio por Unidad',
+                'price_info'        => 'Precio pagado por cada unidad de este ingrediente',
+
+                'gross_weight'      => 'Peso Bruto',
+                'gross_weight_info' => 'Peso antes de cualquier descarte o limpieza del ingrediente',
+                
+                'net_weight'        => 'Peso Neto',
+                'net_weight_info'   => 'Peso del ingrediente después del descarte o limpieza',
+                
+                'loss'              => 'Pérdida',
+                'loss_info'         => 'Peso perdido en el proceso de descarte o limpieza',
+
+                'price_kilo'        => 'Precio por Kg/L',
+                'price_kilo_info'   => 'Precio pagado por cada Kg/L',
+
+                'correction_factor' => 'Factor de Corrección',
+                'correction_factor_info' => 'Número que indica la pérdida de peso que sufre un alimento durante la preparación',
+
+                'revenue'           => 'Rendimiento',
+                'revenue_info'      => 'Porcentaje aprovechado del ingrediente',
+
+                'package'           => 'Envase',
+                'package_info'      => 'Tipo de envase con el que se compra el ingrediente.'
             ],
-            'nutritional'   =>  [
-                'title'         =>  'Nutricional',
-                'sub_title'     =>  'Paso 2: Tabla Nutricional',
-                'modal_title'   =>  'Agregar Nutriente',
-                'modal_nutrient'   =>  'Nutriente',
-                'modal_close'   =>  'Cerrar',
-                'modal_add'     =>  'Agregar'
+            'nutritional' => [
+                'title'             => 'Nutricional',
+                'sub_title'         => 'Etapa 2: Tabla Nutricional',
+                'modal_title'       => 'Añadir Nutriente',
+                'modal_nutrient'    => 'Nutriente',
+                'modal_value'       => 'Valor',
+                'modal_close'       => 'Cerrar',
+                'modal_add'         => 'Añadir',
+                'portion'           => 'Porción',
+                'portion_info'      => 'Medida (porción)',
+                'optional_nutrients'=> 'Nutrientes Opcionales'
             ],
-            'ingredients'   =>  [
-                'title'         =>  'Ingredientes',
-                'sub_title'     =>  'Paso 3: Ingredientes',
-                'ingredients'   =>  'Ingredientes',
+            'storage'   =>  [
+                'title'                 =>  'Conservación',
+                'sub_title'             =>  'Etapa 3: Conservación',
+                'closed_package_label'  =>  'Conservación Envase Cerrado',
+                'opened_package_label'  =>  'Conservación Envase Abierto',
+                'storage_place'         =>  'Lugar de Almacenamiento',
+                'storage_temperature'   =>  'Temperatura de Almacenamiento',
+                
+                'dry_fresh'             =>  'Seco y Fresco',
+                'sheltered_the_sun'     =>  'A la Sombra del Sol',
+                'refrigerator'          =>  'Refrigerador',
+                'freezer'               =>  'Congelador',
+                'custom'                =>  'Personalizado'
             ],
             'allergens'     =>  [
                 'title'                     =>  'Alérgenos',
@@ -61,9 +98,13 @@ return [
                 'contain'                   =>  'Contiene',
                 'allergens_derivatives'     =>  'Contiene Derivados',
                 'derivatives'               =>  'Derivados',
-                'maycontain'                =>  'Puede Contener'
+                'maycontain'                =>  'Puede Contener',
+                'ingredients'               =>  'Ingredientes'
             ],
-            'save'          =>  'Guardar'
+            'finish'        =>  [
+                'title'                     =>  'Finalizar',
+                'sub_title'                 =>  'Fase 5: Refinamiento',
+            ]
         ]
     ]
 ];

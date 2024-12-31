@@ -9,7 +9,8 @@
         cursor: pointer;
         font-size: 20px;
         width: 18%;
-        padding: 15px;
+        padding-inline: 12px;
+        padding-block: 15px;
         border-radius: 10px;
         background-color: #FFF;
         border: #9c9c9c3f 1px solid;

@@ -47,7 +47,7 @@
             <div class="col-md-12">
                 <div class="wizard-steps justify-content-between d-none d-md-flex">
                     {{-- INFO --}}
-                    <div id="step-1" class="wizard-step">
+                    <div id="step-1" class="wizard-step active">
                         <i class="las la-info"></i>
                         <span>{{ trans('crud.ingredient.steps.info.title') }}</span>
                     </div>
@@ -57,7 +57,7 @@
                         <span>{{ trans('crud.ingredient.steps.nutritional.title') }}</span>
                     </div>
                     {{-- STORAGE --}}
-                    <div id="step-3" class="wizard-step active">
+                    <div id="step-3" class="wizard-step">
                         <i class="las la-boxes"></i>
                         <span>{{ trans('crud.ingredient.steps.storage.title') }}</span>
                     </div>
@@ -75,23 +75,25 @@
     
                 <form action="{{ route('ingredient.store') }}" method="POST">
                     @csrf
+
+                    {{-- INFO --}}
                     <div id="step-content-1" class="wizard-content">
                         @include(backpack_view('base.ingredient.crud.tabs.info'))
                     </div>
-        
+                    {{-- NUTRITIONAL --}}
                     <div id="step-content-2" class="wizard-content">
                         @include(backpack_view('base.ingredient.crud.tabs.nutritional'))
                     </div>
-        
-                    <div id="step-content-3" class="wizard-content active">
+                    {{-- STORAGE --}}
+                    <div id="step-content-3" class="wizard-content">
                         @include(backpack_view('base.ingredient.crud.tabs.storage'))
                     </div>
-        
+                    {{-- ALLERGENS --}}
                     <div id="step-content-4" class="wizard-content">
                         @include(backpack_view('base.ingredient.crud.tabs.allergens'))
                     </div>
-        
-                    <div id="step-content-5" class="wizard-content">
+                    {{-- FINISH --}}
+                    <div id="step-content-5" class="wizard-content active">
                         @include(backpack_view('base.ingredient.crud.tabs.finish'))
                     </div>
                 </form>
