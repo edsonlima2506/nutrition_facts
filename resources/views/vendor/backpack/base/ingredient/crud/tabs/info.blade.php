@@ -1,8 +1,9 @@
 {{-- SUBTITLE --}}
 <h4 class="step-subtitle">{{ trans('crud.ingredient.steps.info.sub_title') }}</h4>
-<div class="youtube-tutorial-link">
-    <p><i class="lab la-youtube"></i> Tutorial</p>
-</div>
+<a class="youtube-tutorial-link" href="#">
+    <i class="lab la-youtube"></i>
+    {{ trans('crud.global.tutorial') }}
+</a>
 
 {{-- INPUTS --}}
 <div>
@@ -70,10 +71,10 @@
             @php
                 $field = 'unit_price';
                 $class = 'form-control form-ingredient-input ingredient-extra-field imask';
-                $info = old($field);
+                $info = old($field, '');
                 $value = isset($entry) ? $entry->$field : $info;
-
-                if ($value && gettype($value) != 'string') {
+                
+                if (!empty($value)) {
                     $value = number_format($value, 2, ',', '.');
                 }
             @endphp
@@ -190,7 +191,8 @@
                 $class = 'form-control form-ingredient-input ingredient-extra-field imask';
                 $info = old($field, '');
                 $value = isset($entry) ? $entry->$field : $info;
-                if ($value && gettype($value) != 'string') {
+
+                if (!empty($value)) {
                     $value = number_format($value, 2, ',', '.');
                 }
             @endphp
@@ -223,7 +225,8 @@
                 $class = 'form-control form-ingredient-input ingredient-extra-field imask';
                 $info = old($field, '');
                 $value = isset($entry) ? $entry->$field : $info;
-                if ($value && gettype($value) != 'string') {
+
+                if (!empty($value)) {
                     $value = number_format($value, 2, ',', '.');
                 }
             @endphp
@@ -250,7 +253,8 @@
                 $class = 'form-control form-ingredient-input ingredient-extra-field imask';
                 $info = old($field, '');
                 $value = isset($entry) ? $entry->$field : $info;
-                if ($value && gettype($value) != 'string') {
+
+                if (!empty($value)) {
                     $value = number_format($value, 2, ',', '.');
                 }
             @endphp

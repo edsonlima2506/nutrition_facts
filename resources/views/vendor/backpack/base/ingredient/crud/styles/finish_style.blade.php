@@ -56,7 +56,7 @@
         background: none;
         border: 1px solid rgba(174,177,184,.26);
         border-radius: 7px;
-        height: 80px;
+        min-height: 80px;
         padding: 10px;
         width: 50%;
     }

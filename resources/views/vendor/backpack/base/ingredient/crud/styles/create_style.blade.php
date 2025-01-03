@@ -94,12 +94,16 @@
 
     .youtube-tutorial-link {
         background-color: var(--green);
-        padding-inline: 2px;
-        width: 90px;
+        padding-inline: 10px;
+        max-width: 105px;
         text-align: center;
         height: 25px;
         border-radius: 5px;
         color: var(--dark);
+    }
+
+    .youtube-tutorial-link:hover {
+        color: var(--dark) !important;
     }
 
     .need-help {

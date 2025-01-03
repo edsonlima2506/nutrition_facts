@@ -115,8 +115,7 @@
         }
     }
 
-    function setValueInputMask(obj, value)
-    {
+    function setValueInputMask(obj, value) {
         value = value.toString();
         if (obj[0].masked) {
             obj[0].masked.unmaskedValue = value;
@@ -126,8 +125,7 @@
             obj.val(value);
     }
 
-    function getValueUnmasked(obj)
-    {
+    function getValueUnmasked(obj) {
         if (obj[0].masked) return obj[0].masked.unmaskedValue;
 
         return obj.val();

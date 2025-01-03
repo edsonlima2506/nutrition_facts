@@ -28,6 +28,10 @@ class Ingredient extends Model
         'ingredient_allergens_derivatives' => 'array',
         'ingredient_allergens_maycontain' => 'array',
         'seccondary_ingredients' => 'array',
+        'closed_storage_place' => 'array',
+        'closed_storage_temperature' => 'array',
+        'opened_storage_place' => 'array',
+        'opened_storage_temperature' => 'array'
     ];
 
     /*

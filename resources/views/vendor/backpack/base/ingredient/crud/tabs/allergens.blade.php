@@ -8,9 +8,10 @@
 
 {{-- SUBTITLE --}}
 <h4 class="step-subtitle">{{ trans('crud.ingredient.steps.allergens.sub_title') }}</h4>
-<div class="youtube-tutorial-link">
-    <p><i class="lab la-youtube"></i> Tutorial</p>
-</div>
+<a class="youtube-tutorial-link" href="#">
+    <i class="lab la-youtube"></i>
+    {{ trans('crud.global.tutorial') }}
+</a>
 
 {{-- INPUTS --}}
 <div class="mb-5 mt-5">
@@ -31,11 +32,11 @@
                 <label class="form-check-label" for="{{ $field }}_1">{{ trans('enum.allergensOption.options.contain') }}</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="{{ $field }}" id="{{ $field }}_2" value="doesnt_contain" {{ $value == 'contain' ? 'doesnt_contain' : '' }}>
+                <input class="form-check-input" type="radio" name="{{ $field }}" id="{{ $field }}_2" value="doesnt_contain" {{ $value == 'doesnt_contain' ? 'checked' : '' }}>
                 <label class="form-check-label" for="{{ $field }}_2">{{ trans('enum.allergensOption.options.doesnt_contain') }}</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="{{ $field }}" id="{{ $field }}_3" value="undeclared" {{ $value == 'contain' ? 'undeclared' : '' }}>
+                <input class="form-check-input" type="radio" name="{{ $field }}" id="{{ $field }}_3" value="undeclared" {{ $value == 'undeclared' ? 'checked' : '' }}>
                 <label class="form-check-label" for="{{ $field }}_3">{{ trans('enum.allergensOption.options.undeclared') }}</label>
             </div>
         </div>
@@ -179,46 +180,5 @@
 
 {{-- SCRIPT --}}
 @push('after_scripts')
-    <script>
-        $(document).ready(function() {
-            $('#ingredient_allergens').select2();
-            $('#ingredient_allergens_derivatives').select2();
-            $('#ingredient_allergens_maycontain').select2();
-
-            $("input[name='ingredient_gluten']").on("change", function() {
-                var selectedId = $("input[name='ingredient_gluten']:checked").attr('id');
-                var selectedText = $("label[for='" + selectedId + "']").text();
-                
-                $('#gluten_finish').html(selectedText);
-            });
-
-            $("input[name='ingredient_lactose']").on("change", function() {
-                var selectedId = $("input[name='ingredient_lactose']:checked").attr('id');
-                var selectedText = $("label[for='" + selectedId + "']").text();
-                
-                $('#lactose_finish').html(selectedText);
-            });
-
-            $('#ingredient_allergens_has_derivatives').on('change', function() {
-                if($(this).prop("checked")) {
-                    var allergensContain = $('#ingredient_allergens_finish').html();
-                    allergensContain += ' e derivados';
-
-                    $('#ingredient_allergens_finish').html(allergensContain);
-                } else {
-                    var allergensContain = $('#ingredient_allergens_finish').html();
-
-                    if (allergensContain.includes('e derivados')) {
-                        allergensContain = allergensContain.replace(' e derivados', '');
-                    }
-
-                    $('#ingredient_allergens_finish').html(allergensContain);
-                }
-            });
-
-            $('#seccondary_ingredients').select2({
-                tags: true
-            });
-        });
-    </script>
+    @include(backpack_view('base.ingredient.crud.scripts.allergens_script'))
 @endpush

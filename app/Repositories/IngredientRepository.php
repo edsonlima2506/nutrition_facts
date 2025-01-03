@@ -4,9 +4,12 @@ namespace App\Repositories;
 
 use App\Models\Ingredient;
 use App\Models\User;
+use App\Traits\CrudFieldsTrait;
 
 class IngredientRepository
 {
+    use CrudFieldsTrait;
+
     /**
      * @return array
      */
@@ -84,7 +87,7 @@ class IngredientRepository
     {
         $data['name'] = $data['ingredient_name'];
         $data['manufacturer'] = $data['ingredient_manufacturer'];
-        $data['supplier'] = $data['ingredient_manufacturer'];
+        $data['supplier'] = $data['ingredient_supplier'];
         $data['company_id'] = $user->company_id;
         $data['ingredient_allergens_has_derivatives'] = isset($data['ingredient_allergens_has_derivatives']) ? true : false;
         $data['unit_price'] = str_replace(',', '.', $data['unit_price']) ?? 0;
@@ -92,6 +95,10 @@ class IngredientRepository
         $data['correction_factor'] = str_replace(',', '.', $data['correction_factor']) ?? 0;
         $data['revenue'] = str_replace(',', '.', $data['revenue']) ?? 0;
         $data['nutritional_values'] = $this->extractNutritionalValues($data);
+        $data['closed_storage_place'] = $this->processJsonString(data_get($data, 'closed_storage_place', []));
+        $data['closed_storage_temperature'] = $this->processJsonString(data_get($data, 'closed_storage_temperature', []));
+        $data['opened_storage_place'] = $this->processJsonString(data_get($data, 'opened_storage_place', []));
+        $data['opened_storage_temperature'] = $this->processJsonString(data_get($data, 'opened_storage_temperature', []));
 
         return $data;
     }
@@ -128,5 +135,15 @@ class IngredientRepository
     public function storeIngredient(array $data): Ingredient
     {
         return Ingredient::create($data);
+    }
+    /**
+     * @param Ingredient $ingredient
+     * @param array $data
+     * 
+     * @return void
+     */
+    public function updateIngredient(Ingredient $ingredient, array $data): void
+    {
+        $ingredient->update($data);
     }
 }

@@ -36,6 +36,17 @@ class CreateIngredientsTable extends Migration
             $table->json('ingredient_allergens_derivatives')->nullable();
             $table->json('ingredient_allergens_maycontain')->nullable();
             $table->json('seccondary_ingredients')->nullable();
+
+            $table->json('closed_storage_place')->nullable();
+            $table->string('closed_storage_place_custom')->nullable();
+            $table->json('closed_storage_temperature')->nullable();
+            $table->string('closed_storage_temperature_custom')->nullable();
+
+            $table->json('opened_storage_place')->nullable();
+            $table->string('opened_storage_place_custom')->nullable();
+            $table->json('opened_storage_temperature')->nullable();
+            $table->string('opened_storage_temperature_custom')->nullable();
+
             $table->foreignId('company_id')
                 ->constrained()
                 ->onDelete('CASCADE');

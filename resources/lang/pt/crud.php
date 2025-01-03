@@ -6,7 +6,8 @@ return [
         'updated_at'    =>  'Atualizado Em',
         'next_step'     =>  'Próxima Etapa',
         'back'          =>  'Voltar',
-        'need_help'     =>  'Precisa de Ajuda?'
+        'need_help'     =>  'Precisa de Ajuda?',
+        'tutorial'      =>  'Tutorial'
     ],
 
     'company'   =>  [
@@ -28,10 +29,19 @@ return [
             'name'                      =>  'Nome',
             'name_placeholder'          =>  "Escreva entre '( )' para adicionar observação",
             'manufacturer'              =>  'Fabricante',
+            'supplier'                  =>  'Fornecedor',
             'price'                     =>  'Preço',
             'nutritional_information'   =>  'Informações Nutricionais',
             'seccondary_ingredients'    =>  'Ingredientes Secundários',
-            'allergens'                 =>  'Alérgenos'
+            'allergens'                 =>  'Alérgenos',
+            'closed_package'            =>  'Embalagem Fechada',
+            'opened_package'            =>  'Embalagem Aberta'
+        ],
+        'filters'   =>  [
+            'id'            =>  'ID',
+            'name'          =>  'Nome',
+            'manufacturer'  =>  'Fabricante',
+            'supplier'      =>  'Fornecedor'
         ],
         'steps'     =>  [
             'info' => [
@@ -89,7 +99,22 @@ return [
                 'sheltered_the_sun'     =>  'Ao abrigo do Sol',
                 'refrigerator'          =>  'Geladeira',
                 'freezer'               =>  'Congelador',
-                'custom'                =>  'Personalizado'
+                'custom'                =>  'Personalizado',
+
+                'room_temperature'      =>  [
+                    'celsius'           =>  'Até 25°C',
+                    'fahrenheit'        =>  'Até 77°F'
+                ],
+
+                'refrigerated'          =>  [
+                    'celsius'           =>  'De 1°C a 5°C',
+                    'fahrenheit'        =>  'De 33,8°F a 41°F'
+                ],
+
+                'frozen'                =>  [
+                    'celsius'           =>  '-18°C',
+                    'fahrenheit'        =>  '-0,4°F'
+                ]
             ],
             'allergens'     =>  [
                 'title'                     =>  'Alérgenos',
@@ -99,7 +124,8 @@ return [
                 'allergens_derivatives'     =>  'Contém Derivados',
                 'derivatives'               =>  'Derivados',
                 'maycontain'                =>  'Pode Conter',
-                'ingredients'               =>  'Ingredientes'
+                'ingredients'               =>  'Ingredientes',
+                'and_derivatives'           =>  'e derivados'
             ],
             'finish'        =>  [
                 'title'                     =>  'Finalizar',

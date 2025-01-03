@@ -8,9 +8,10 @@
 
 {{-- SUBTITLE --}}
 <h4 class="step-subtitle">{{ trans('crud.ingredient.steps.nutritional.sub_title') }}</h4>
-<div class="youtube-tutorial-link">
-    <p><i class="lab la-youtube"></i> Tutorial</p>
-</div>
+<a class="youtube-tutorial-link" href="#">
+    <i class="lab la-youtube"></i>
+    {{ trans('crud.global.tutorial') }}
+</a>
 
 {{-- INPUTS --}}
 <div class="container mb-5 mt-5">

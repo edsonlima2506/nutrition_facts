@@ -1,69 +1,3 @@
-{{-- <script>
-    $(document).ready(function() {
-        function updateHiddenInput(fieldId, values) {
-            $("#" + fieldId).val(JSON.stringify(values)); // Salva os valores no input hidden
-        }
-
-        function handleStorageOptionSelection(storageId, fieldId) {
-            let selectedValues = [];
-
-            $("#" + storageId + " .storage-option").click(function() {
-                const value = $(this).data("value");
-
-                if (["refrigerator", "freezer", "custom"].includes(value)) {
-                    if ($(this).hasClass("selected")) {
-                        $(this).removeClass("selected");
-                        selectedValues = selectedValues.filter(item => item !== value);
-                        if (value === "custom") {
-                            $("#" + storageId + "-custom-input").remove();
-                        }
-                    } else {
-                        $("#" + storageId + " .storage-option").each(function() {
-                            if (["dry_fresh", "sheltered_the_sun"].includes($(this).data("value"))) {
-                                $(this).removeClass("selected");
-                            }
-                        });
-
-                        selectedValues = [value];
-
-                        $("#" + storageId + " .storage-option").each(function() {
-                            if (["refrigerator", "freezer", "custom"].includes($(this).data("value")) && $(this).data("value") !== value) {
-                                $(this).removeClass("selected");
-                            }
-                        });
-
-                        $(this).addClass("selected");
-
-                        if (value === "custom") {
-                            $("#" + storageId + "-custom-input").remove(); // Remover qualquer input existente
-                            const customInputHtml = `
-                                <div id="${storageId}-custom-input" class="mt-2">
-                                    <input type="text" class="form-control" id="${storageId}-custom-text" name="${storageId}-custom-text">
-                                </div>`;
-                            $("#" + storageId).append(customInputHtml); // Adiciona o input abaixo da seleção
-                        }
-                    }
-                } else {
-                    if (selectedValues.includes(value)) {
-                        selectedValues = selectedValues.filter(item => item !== value);
-                    } else {
-                        selectedValues.push(value);
-                    }
-
-                    $(this).toggleClass("selected", selectedValues.includes(value));
-                }
-
-                updateHiddenInput(fieldId, selectedValues);
-            });
-        }
-
-        handleStorageOptionSelection("closed-storage-place", "closed_storage_place");
-        handleStorageOptionSelection("closed-storage-temperature", "closed_storage_temperature");
-        handleStorageOptionSelection("opened-storage-place", "opened_storage_place");
-        handleStorageOptionSelection("opened-storage-temperature", "opened_storage_temperature");
-    });
-</script> --}}
-
 <script>
     $(document).ready(function() {
         function updateHiddenInput(fieldId, values) {
@@ -99,6 +33,80 @@
             const fieldId = $(this).data("reference");
 
             selectStorageOption(value, fieldId, $(this));
+        });
+
+    });
+
+    @php
+        $translations = [
+            'dry_fresh' => trans('crud.ingredient.steps.storage.dry_fresh'),
+            'sheltered_the_sun' => trans('crud.ingredient.steps.storage.sheltered_the_sun'),
+            'refrigerator' => trans('crud.ingredient.steps.storage.refrigerator'),
+            'freezer' => trans('crud.ingredient.steps.storage.freezer'),
+            'custom' => trans('crud.ingredient.steps.storage.custom'),
+            'room_temperature' => trans('crud.ingredient.steps.storage.room_temperature.celsius'),
+            'refrigerated' => trans('crud.ingredient.steps.storage.refrigerated.celsius'),
+            'frozen' => trans('crud.ingredient.steps.storage.frozen.celsius')
+        ];
+    @endphp
+
+    var translations = @json($translations);
+
+    var observer = new MutationObserver(function(mutations) {
+        updateFinishClosedStoragePlaces();
+        updateFinishOpenedStoragePlaces();
+
+        updateFinishClosedStorageTemperatures();
+        updateFinishOpenedStorageTemperatures();
+    });
+
+    function updateFinishClosedStoragePlaces() {
+        var closedStoragePlaces = $('#closed_storage_place').val() ?? [];
+
+        var result = JSON.parse(closedStoragePlaces).map(function(option) {
+            return translations[option];
+        }).join(', ');
+
+        $('#closed_package_location_finish').empty();
+        $('#closed_package_location_finish').append(result);
+    }
+
+    function updateFinishOpenedStoragePlaces() {
+        var openedStoragePlaces = $('#opened_storage_place').val() ?? [];
+
+        var result = JSON.parse(openedStoragePlaces).map(function(option) {
+            return translations[option];
+        }).join(', ');
+
+        $('#opened_package_location_finish').empty();
+        $('#opened_package_location_finish').append(result);
+    }
+
+    function updateFinishClosedStorageTemperatures() {
+        var closedStorageTemperatures = $('#closed_storage_temperature').val() ?? [];
+
+        var result = JSON.parse(closedStorageTemperatures).map(function(option) {
+            return translations[option];
+        }).join(', ');
+
+        $('#closed_package_temperature_finish').empty();
+        $('#closed_package_temperature_finish').append(result);
+    }
+
+    function updateFinishOpenedStorageTemperatures() {
+        var openedStorageTemperatures = $('#opened_storage_temperature').val() ?? [];
+
+        var result = JSON.parse(openedStorageTemperatures).map(function(option) {
+            return translations[option];
+        }).join(', ');
+
+        $('#opened_package_temperature_finish').empty();
+        $('#opened_package_temperature_finish').append(result);
+    }
+
+    $('.storage-option').each(function() {
+        observer.observe(this, {
+            attributes: true
         });
     });
 </script>

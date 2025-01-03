@@ -22,7 +22,9 @@ class IngredientCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation {
         store as traitStore;
     }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation {
+        update as traitUpdate;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
@@ -44,8 +46,8 @@ class IngredientCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/ingredient');
         CRUD::setEntityNameStrings(trans('crud.ingredient.singular'), trans('crud.ingredient.plural'));
         
-        CRUD::setCreateView(backpack_view('base.ingredient.crud.create'));
-        CRUD::setEditView(backpack_view('base.ingredient.crud.create'));
+        CRUD::setCreateView(backpack_view('base.ingredient.crud.ingredient_crud'));
+        CRUD::setEditView(backpack_view('base.ingredient.crud.ingredient_crud'));
 
         $this->ingredientService = resolve(IngredientService::class);
         
@@ -95,7 +97,7 @@ class IngredientCrudController extends CrudController
             [
                 'type'  => 'text',
                 'name'  => 'name',
-                'label' => 'Nome'
+                'label' => trans('crud.ingredient.filters.name')
             ], 
             false, 
             function($value) {
@@ -172,6 +174,29 @@ class IngredientCrudController extends CrudController
             $user = backpack_user();
 
             $this->ingredientService->storeIngredient($requestData, $user);
+
+            Alert::success(trans('backpack::crud.insert_success'))->flash();
+
+            return redirect(backpack_url('ingredient'));
+        } catch (Exception $exception) {
+            report($exception);
+
+            Alert::error(trans('backpack::base.error_saving'))->flash();
+
+            return redirect()->back()->withInput();
+        }
+    }
+
+    public function update(IngredientRequest $request)
+    {
+        try {
+            $requestData = $request->all();
+
+            $user = backpack_user();
+
+            $model = $this->crud->getCurrentEntry();
+
+            $this->ingredientService->updateIngredient($requestData, $user, $model);
 
             Alert::success(trans('backpack::crud.insert_success'))->flash();
 

@@ -29,4 +29,21 @@ class IngredientService
 
         return $this->ingredientRepository->storeIngredient($ingredientData);
     }
+
+    /**
+     * @param array $requestData
+     * @param User $user
+     * @param Ingredient $model
+     * 
+     * @return void
+     */
+    public function updateIngredient(
+        array $requestData,
+        User $user,
+        Ingredient $model
+    ): void {
+        $ingredientData = $this->ingredientRepository->mapIngredientData($requestData, $user);
+
+        $this->ingredientRepository->updateIngredient($model, $ingredientData);
+    }
 }

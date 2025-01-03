@@ -30,7 +30,7 @@ class IngredientRequest extends FormRequest
             'ingredient_supplier' => 'nullable|string|max:255',
             'unit_price' => 'required',
             'seccondary_ingredients' => 'nullable|array',
-            'ingredient_allergens' => 'nullable|array',
+            'ingredient_allergens' => 'nullable|array'
         ];
     }
 
