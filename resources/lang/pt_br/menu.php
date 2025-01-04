@@ -12,5 +12,11 @@ return [
         'main'  =>  'Ingredientes',
         'list'  =>  'Listar Ingredientes',
         'new'   =>  'Add. Ingrediente'
+    ],
+    'recipes' => [
+        'main'  =>  'Receitas',
+        'list'  =>  'Listar Receitas',
+        'new'   =>  'Add. Receita',
+        'recipeCategory' => 'Categorias'
     ]
 ];

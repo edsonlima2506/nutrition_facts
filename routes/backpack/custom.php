@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CompanyCrudController;
 use App\Http\Controllers\Admin\IngredientCrudController;
+use App\Http\Controllers\Admin\RecipeCategoryCrudController;
+use App\Http\Controllers\Admin\RecipeCrudController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +29,18 @@ Route::group([
         Route::get('/my-company/{company}', [CompanyCrudController::class, 'myCompany'])->name('company.my_company');
         Route::post('/my-company/{company}', [CompanyCrudController::class, 'myCompanyUpdate'])->name('company.my_company.update');
     });
-    Route::crud('ingredient', IngredientCrudController::class);
+
+
+    // Ingredients
+    // Route::crud('ingredient', IngredientCrudController::class);
+    Route::group([
+        'prefix' => 'ingredient'
+    ], function() {
+        Route::crud('/', IngredientCrudController::class);
+        Route::get('/search', [IngredientCrudController::class, 'searchIngredients'])->name('ingredient.searchIngredients');
+    });
+
+    
+    Route::crud('recipe-category', RecipeCategoryCrudController::class);
+    Route::crud('recipe', RecipeCrudController::class);
 }); // this should be the absolute last line of this file

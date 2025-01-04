@@ -169,6 +169,7 @@ return [
         'access_companies'      =>  ['super_admin'],
         'update_company'        =>  ['super_admin', 'client'],
 
-        'access_ingredients'    =>  ['super_admin', 'client']
+        'access_ingredients'    =>  ['super_admin', 'client'],
+        'access_recipes'        =>  ['super_admin', 'client']    
     ]
 ];

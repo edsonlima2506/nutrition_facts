@@ -9,6 +9,7 @@ use App\Traits\CheckCompany;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Exception;
+use Illuminate\Http\Request;
 use Prologue\Alerts\Facades\Alert;
 
 /**
@@ -186,6 +187,39 @@ class IngredientCrudController extends CrudController
             return redirect()->back()->withInput();
         }
     }
+
+    public function searchIngredients(Request $request)
+    {
+        // Obtendo o termo de busca
+        $search = $request->get('q', '');
+        
+        // Verifica o tipo de usuário logado
+        $user = backpack_user();
+
+        // Se for um superadmin, busca todos os ingredientes
+        if ($user->hasRole('super_admin')) {
+            $ingredients = $this->ingredientService->searchLimit($search, 10, $user);
+        } else {
+            // Se for uma empresa, busca os ingredientes que pertencem a ela
+            $ingredients = $this->ingredientService->searchLimit($search, 10, $user);
+        }
+
+        // Formatar os dados para o Select2
+        $results = $ingredients->map(function($ingredient) {
+            return [
+                'id'            => $ingredient->id,
+                'text'          => $ingredient->name,
+                'company_id'    => $ingredient->company_id,
+                'image'         => $ingredient->package,
+                'price'         => $ingredient->unit_price
+            ];
+        });
+
+        return response()->json([
+            'results' => $results
+        ]);
+    }
+    
 
     public function update(IngredientRequest $request)
     {

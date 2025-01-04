@@ -274,7 +274,7 @@
                         $value = isset($entry) ? $entry->$field : '';
                     @endphp
                     <div id="seccondary_ingredients_finish">
-                        {{ implode(', ', $value) }}
+                        {{ $value !== "" ? implode(', ', $value) : ''}}
                     </div>
                 </div>
             </div>

@@ -146,4 +146,21 @@ class IngredientRepository
     {
         $ingredient->update($data);
     }
+
+    public function searchLimit(string $search, int $limit, User $user)
+    {
+        if(is_null($user->company_id)){
+            return Ingredient::where(function($query) use ($user, $search) {
+                $query->where('company_id', $user->company_id)
+                    ->orWhereNull('company_id');
+            })
+            ->where('name', 'like', '%' . $search . '%')
+            ->limit(10)
+            ->get();
+        }else{
+            return Ingredient::where('name', 'like', '%' . $search . '%')
+            ->limit($limit)
+            ->get();
+        }
+    }
 }

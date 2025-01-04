@@ -46,4 +46,12 @@ class IngredientService
 
         $this->ingredientRepository->updateIngredient($model, $ingredientData);
     }
+
+    public function searchLimit(
+        string $search,
+        int $limit, 
+        User $user
+    ){
+       return $this->ingredientRepository->searchLimit($search, $limit, $user);
+    }
 }

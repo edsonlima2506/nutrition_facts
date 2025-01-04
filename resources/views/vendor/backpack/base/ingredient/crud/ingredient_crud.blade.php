@@ -42,7 +42,7 @@
         </div>
     @endif
 
-    <div class="container bg-white p-4 rounded shadow mt-1 mb-2">
+    <div class="container-fluid bg-white p-4 rounded shadow mt-1 mb-2">
         <div class="row">
             <div class="col-md-12">
                 <div class="wizard-steps justify-content-between d-none d-md-flex">
@@ -86,7 +86,7 @@
                 @endphp
                 <form action="{{ $url }}" method="post">
                     @csrf
-                    @if ($typeEdit)
+                    @if (isset($typeEdit))
                         {!! method_field('PUT') !!}
                     @endif
                     {{-- INFO --}}

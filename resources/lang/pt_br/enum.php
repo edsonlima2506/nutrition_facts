@@ -16,5 +16,20 @@ return [
             'undeclared'        =>  'Não Declarado',
             'low_content'       =>  'Baixo Teor'
         ]
+    ],
+
+    'portion_unit' => [
+        'portions'      =>  'Porções',
+        'people'        =>  'Pessoas',
+        'units'         =>  'Unidades',
+        'liters'        =>  'Litros',
+        'milliliters'   =>  'Mililitros',
+        'grams'         =>  'Gramas'
+    ],
+
+    'weight_unit'   =>  [
+        'grams'         =>  'Gramas',
+        'kilograms'     =>  'Quilogramas'     
     ]
+
 ];
