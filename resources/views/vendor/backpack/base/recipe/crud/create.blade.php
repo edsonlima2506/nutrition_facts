@@ -60,7 +60,7 @@
                     <i class="las la-boxes"></i>
                     <span>{{ trans('crud.recipe.steps.preparation_method.title') }}</span>
                 </div>
-                {{-- financial --}}
+                {{-- FINANCIAL --}}
                 <div id="step-4" class="wizard-step">
                     <i class="las la-allergies"></i>
                     <span>{{ trans('crud.recipe.steps.financial.title') }}</span>
@@ -88,6 +88,11 @@
                  {{-- PREPARATION METHOD --}}
                  <div id="step-content-3" class="wizard-content">
                     @include(backpack_view('base.recipe.crud.tabs.preparation_method'))
+                </div>
+
+                 {{-- FINANCIAL --}}
+                 <div id="step-content-4" class="wizard-content">
+                    @include(backpack_view('base.recipe.crud.tabs.financial'))
                 </div>
             </form>
         </div>
