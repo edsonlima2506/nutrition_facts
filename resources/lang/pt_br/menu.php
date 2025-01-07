@@ -11,7 +11,8 @@ return [
     'ingredients'   =>  [
         'main'  =>  'Ingredientes',
         'list'  =>  'Listar Ingredientes',
-        'new'   =>  'Add. Ingrediente'
+        'new'   =>  'Add. Ingrediente',
+        'system'=>  'Ingredientes IChef'
     ],
     'recipes' => [
         'main'  =>  'Receitas',

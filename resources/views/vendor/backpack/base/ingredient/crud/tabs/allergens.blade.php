@@ -82,7 +82,7 @@
     @php
         $field = 'ingredient_allergens';
         $info = old($field, []);
-        $value = isset($entry) ? $entry->$field : $info;
+        $value = isset($entry) ? $entry->$field ?? [] : $info;
     @endphp
     <label for="{{ $field }}" class="form-label">
         {{ trans('crud.ingredient.steps.allergens.contain') }}
@@ -112,7 +112,7 @@
     @php
         $field = 'ingredient_allergens_derivatives';
         $info = old($field, []);
-        $value = isset($entry) ? $entry->$field : $info;
+        $value = isset($entry) ? $entry->$field ?? [] : $info;
     @endphp
     <label for="{{ $field }}" class="form-label">
         {{ trans('crud.ingredient.steps.allergens.allergens_derivatives') }}
@@ -129,7 +129,7 @@
     @php
         $field = 'ingredient_allergens_maycontain';
         $info = old($field, []);
-        $value = isset($entry) ? $entry->$field : $info;
+        $value = isset($entry) ? $entry->$field ?? [] : $info;
     @endphp
     <label for="{{ $field }}" class="form-label">
         {{ trans('crud.ingredient.steps.allergens.maycontain') }}
@@ -145,7 +145,7 @@
     @php
         $field = 'seccondary_ingredients';
         $info = old($field, []);
-        $value = isset($entry) ? $entry->$field : $info;
+        $value = isset($entry) ? $entry->$field ?? [] : $info;
     @endphp
     <label for="{{ $field }}" class="form-label">
         {{ trans('crud.ingredient.steps.allergens.ingredients') }}

@@ -36,7 +36,7 @@ return [
             'seccondary_ingredients'    =>  'Igredientes',
             'allergens'                 =>  'Alérgenos',
             'closed_package'            =>  'Embalagem Fechada',
-            'opened_package'            =>  'Embalagem Aberta',
+            'opened_package'            =>  'Embalagem Aberta'
         ],
         'filters'   =>  [
             'id'            =>  'ID',
@@ -74,7 +74,9 @@ return [
                 'revenue_info'      =>  'Porcentagem aproveitada do ingrediente',
 
                 'package'           =>  'Embalagem',
-                'package_info'      =>  'Tipo de embalagem que o ingrediente é comprado.'
+                'package_info'      =>  'Tipo de embalagem que o ingrediente é comprado.',
+
+                'table'             =>  'Tabela'
             ],
             'nutritional'   =>  [
                 'title'             =>  'Nutricional',
@@ -86,7 +88,8 @@ return [
                 'modal_add'         =>  'Adicionar',
                 'portion'           =>  'Porção',
                 'portion_info'      =>  'Medida (porção)',
-                'optional_nutrients'=>  'Nutrientes Opcionais'
+                'optional_nutrients'=>  'Nutrientes Opcionais',
+                'portion_quantity'  =>  'Quantidade por porção'
             ],
             'storage'   =>  [
                 'title'                 =>  'Conservação',

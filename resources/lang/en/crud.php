@@ -73,7 +73,9 @@ return [
                 'revenue_info'      => 'Percentage of the ingredient that is usable',
 
                 'package'           => 'Packaging',
-                'package_info'      => 'Type of packaging the ingredient is purchased in.'
+                'package_info'      => 'Type of packaging the ingredient is purchased in.',
+
+                'table'             =>  'Table'
             ],
             'nutritional' => [
                 'title'             => 'Nutritional',
@@ -85,7 +87,8 @@ return [
                 'modal_add'         => 'Add',
                 'portion'           => 'Portion',
                 'portion_info'      => 'Measure (portion)',
-                'optional_nutrients'=> 'Optional Nutrients'
+                'optional_nutrients'=> 'Optional Nutrients',
+                'portion_quantity'  => 'Quantity per serving'
             ],
             'storage'   =>  [
                 'title'                 =>  'Storage',

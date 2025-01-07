@@ -33,15 +33,59 @@
         box-shadow: 0px 4px 8px 0px rgba(81, 97, 129, 0.15);
     }
 
+    .image-upload .file-input {
+        position: absolute;
+        top: 10px;
+        left: 25px;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
     .image-upload i {
         font-size: 40px;
         color: var(--dark);
     }
 
+    .clear-icon {
+        position: relative;
+        top: 0;
+        right: 0;
+        display: none;
+        cursor: pointer;
+        background-color: var(--primary);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+        z-index: 10;
+    }
+
+    .clear-icon i {
+        font-size: 24px !important;
+        padding: 2px;
+    }
+
+    .image-upload.has-image .clear-icon {
+        display: none;
+    }
+
+    .image-upload.has-image:hover .clear-icon {
+        display: block;
+    }
+
+    .crop-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cropper-crop-box, .cropper-view-box {
+        border-radius: 50% !important;
+    }
+
     .finish-section {
         padding: 10px;
         background-color: white;
-        box-shadow: 4px 4px 4px 4px rgba(81, 97, 129, 0.15);
+        box-shadow: 2px 2px 6px rgba(81, 97, 129, 0.1);
         border-radius: 7px;
     }
 

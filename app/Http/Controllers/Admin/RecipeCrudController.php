@@ -51,7 +51,6 @@ class RecipeCrudController extends CrudController
             'weightUnits'   => $weightUnits
         ]);
 
-
         $this->setCompanyVisibility();
     }
 

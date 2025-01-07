@@ -60,6 +60,12 @@
             </li>
 
             <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('system/ingredients') }}'>
+                    <i class="nav-icon las la-clipboard-list"></i> {{ trans('menu.ingredients.system') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
                 <a class='nav-link' href='{{ backpack_url('ingredient/create') }}'>
                     <i class="nav-icon las la-plus-square"></i> {{ trans('menu.ingredients.new') }}
                 </a>

@@ -28,7 +28,6 @@ class IngredientRequest extends FormRequest
             'ingredient_name' => 'required|string|min:3|max:255',
             'ingredient_manufacturer' => 'nullable|string|max:255',
             'ingredient_supplier' => 'nullable|string|max:255',
-            'unit_price' => 'required',
             'seccondary_ingredients' => 'nullable|array',
             'ingredient_allergens' => 'nullable|array'
         ];
@@ -45,10 +44,9 @@ class IngredientRequest extends FormRequest
             'name' => trans('crud.ingredient.fields.name'),
             'manufacturer' => trans('crud.ingredient.fields.manufacturer'),
             'supplier' => trans('crud.ingredient.fields.supplier'),
-            'unit_price' => trans('crud.ingredient.fields.price'),
             'nutritional_values' => trans('crud.ingredient.fields.nutritional_information'),
             'seccondary_ingredients' => trans('crud.ingredient.fields.seccondary_ingredients'),
-            'ingredient_allergens' => trans('crud.ingredient.fields.allergens'),
+            'ingredient_allergens' => trans('crud.ingredient.fields.allergens')
         ];
     }
 

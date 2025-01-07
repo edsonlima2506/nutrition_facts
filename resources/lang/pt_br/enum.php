@@ -30,6 +30,15 @@ return [
     'weight_unit'   =>  [
         'grams'         =>  'Gramas',
         'kilograms'     =>  'Quilogramas'     
-    ]
+    ],
 
+    'food_table'    =>  [
+        'ibge' => 'IBGE',
+        'taco' => 'TACO',
+        'tca' => 'TCA',
+        'ciqual' => 'Ciqual',
+        'efsa' => 'EFSA',
+        'usda' => 'USDA',
+        'fao' => 'FAO',
+    ]
 ];

@@ -16,5 +16,15 @@ return [
             'undeclared'        =>  'Non Déclaré',
             'low_content'       =>  'Faible Contenu'
         ]
+    ],
+
+    'food_table'    =>  [
+        'ibge' => 'IBGE',
+        'taco' => 'TACO',
+        'tca' => 'TCA',
+        'ciqual' => 'Ciqual',
+        'efsa' => 'EFSA',
+        'usda' => 'USDA',
+        'fao' => 'FAO',
     ]
 ];

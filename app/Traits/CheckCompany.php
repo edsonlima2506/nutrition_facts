@@ -28,6 +28,7 @@ trait CheckCompany
     protected function setCompanyVisibility(): void
     {
         if (!backpack_user()->hasRole('super_admin')) {
+            $this->crud->addClause('whereNotNull', 'company_id');
             $this->crud->addClause('where', 'company_id', backpack_user()->company_id);
         }
     }

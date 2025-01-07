@@ -18,7 +18,11 @@
                 {{-- HEADER SECTION --}}
                 <div class="d-flex mb-4">
                     <div class="image-upload">
+                        <input type="file" name="ingredient_image" class="file-input" accept="image/*">
                         <i class="las la-camera-retro"></i>
+                        <div class="clear-icon">
+                            <i class="las la-times"></i>
+                        </div>
                     </div>
                     <div class="ml-3">
                         <div>
@@ -90,7 +94,7 @@
                         @php
                             $field = 'closed_storage_place';
                             $info = old($field, []);
-                            $value = isset($entry) ? $entry->$field : '';
+                            $value = isset($entry) ? $entry->$field : $info;
                             $mappedValues = [];
 
                             if(!empty($value)) {
@@ -107,7 +111,7 @@
                         @php
                             $field = 'closed_storage_temperature';
                             $info = old($field, []);
-                            $value = isset($entry) ? $entry->$field : '';
+                            $value = isset($entry) ? $entry->$field : $info;
                             $mappedValues = [];
 
                             if(!empty($value)) {
@@ -129,7 +133,7 @@
                         @php
                             $field = 'opened_storage_place';
                             $info = old($field, []);
-                            $value = isset($entry) ? $entry->$field : '';
+                            $value = isset($entry) ? $entry->$field : $info;
                             $mappedValues = [];
 
                             if(!empty($value)) {
@@ -146,7 +150,7 @@
                         @php
                             $field = 'opened_storage_temperature';
                             $info = old($field, []);
-                            $value = isset($entry) ? $entry->$field : '';
+                            $value = isset($entry) ? $entry->$field : $info;
                             $mappedValues = [];
 
                             if(!empty($value)) {
@@ -203,7 +207,7 @@
                     @php
                         $field = 'ingredient_allergens';
                         $info = old($field, []);
-                        $value = isset($entry) ? $entry->$field : '';
+                        $value = isset($entry) ? $entry->$field ?? [] : $info;
                         $derivatives = isset($entry) ? $entry->ingredient_allergens_has_derivatives : false;
                         $mappedValues = [];
                         $andDerivatives = trans('crud.ingredient.steps.allergens.and_derivatives');
@@ -227,7 +231,7 @@
                     @php
                         $field = 'ingredient_allergens_derivatives';
                         $info = old($field, []);
-                        $value = isset($entry) ? $entry->$field : '';
+                        $value = isset($entry) ? $entry->$field ?? [] : $info;
                         $mappedValues = [];
 
                         if(!empty($value)) {
@@ -249,7 +253,7 @@
                     @php
                         $field = 'ingredient_allergens_maycontain';
                         $info = old($field, []);
-                        $value = isset($entry) ? $entry->$field : '';
+                        $value = isset($entry) ? $entry->$field ?? [] : $info;
                         $mappedValues = [];
 
                         if(!empty($value)) {
@@ -271,7 +275,7 @@
                     @php
                         $field = 'seccondary_ingredients';
                         $info = old($field, []);
-                        $value = isset($entry) ? $entry->$field : '';
+                        $value = isset($entry) ? $entry->$field ?? [] : $info;
                     @endphp
                     <div id="seccondary_ingredients_finish">
                         {{ $value !== "" ? implode(', ', $value) : ''}}
@@ -283,43 +287,7 @@
         <div class="col-12 col-md-5 mt-3 mt-md-0">
             <div class="finish-section">
                 {{-- NUTRITIONAL TABLE --}}
-                <table class="table table-bordered table-striped" id="finish-nutrtional-table">
-                    <thead>
-                        <tr>
-                            @php
-                                $field = 'portion';
-                                $info = old($field, 0);
-                                $value = isset($entry) ? $entry->$field : $info;
-                            @endphp
-                            <th colspan="2">Quantidade por porção <span id="portion_finish" class="badge badge-success">{{ $value }}</span> g/ml</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
-                            $nutrients = App\Repositories\NutrientRepository::getMandatoryNutrients();
-                        @endphp
-                        
-                        @foreach ($nutrients as $nutrient)
-                            @php
-                                $field = data_get($nutrient, 'name');
-                                $label = data_get($nutrient, 'label');
-                                $measureName = data_get($nutrient, 'measure_name');
-                                $info = old($field, 0);
-
-                                $value = isset($entry) ? $entry->nutritional_values[$field] : $info;
-
-                                if (!empty($value)) {
-                                    $value = number_format($value, 2, ',', '.');
-                                }
-                            @endphp
-                            <tr>
-                                <td>{{ $label }}</td>
-                                <td><span class="finish-info" id="nutritional_{{ $field }}_finish">{{ $value }}</span> {{ $measureName }}</td>
-                            </tr>
-                        @endforeach
-                        
-                    </tbody>
-                </table>
+                @include(backpack_view('base.ingredient.crud.partials.nutritional_table'))
             </div>
         </div>
     </div>
@@ -332,3 +300,7 @@
     </div>
 </div>
 
+@push('after_scripts')
+    @include(backpack_view('base.ingredient.crud.modals.cropp'))
+    @include(backpack_view('base.ingredient.crud.scripts.finish_script'))
+@endpush

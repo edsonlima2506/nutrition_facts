@@ -73,7 +73,9 @@ return [
                 'revenue_info'      => 'Porcentaje aprovechado del ingrediente',
 
                 'package'           => 'Envase',
-                'package_info'      => 'Tipo de envase con el que se compra el ingrediente.'
+                'package_info'      => 'Tipo de envase con el que se compra el ingrediente.',
+
+                'table'             =>  'Tabla'
             ],
             'nutritional' => [
                 'title'             => 'Nutricional',
@@ -125,7 +127,8 @@ return [
                 'derivatives'               =>  'Derivados',
                 'maycontain'                =>  'Puede Contener',
                 'ingredients'               =>  'Ingredientes',
-                'and_derivatives'           =>  'e derivados'
+                'and_derivatives'           =>  'e derivados',
+                'portion_quantity'          =>  'Cantidad por porción'
             ],
             'finish'        =>  [
                 'title'                     =>  'Finalizar',

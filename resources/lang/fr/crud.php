@@ -73,7 +73,9 @@ return [
                 'revenue_info'      => 'Pourcentage utilisé de l\'ingrédient',
 
                 'package'           => 'Emballage',
-                'package_info'      => 'Type d\'emballage dans lequel l\'ingrédient est acheté.'
+                'package_info'      => 'Type d\'emballage dans lequel l\'ingrédient est acheté.',
+
+                'table'             =>  'Tableau'
             ],
             'nutritional' => [
                 'title'             => 'Nutritionnel',
@@ -85,7 +87,8 @@ return [
                 'modal_add'         => 'Ajouter',
                 'portion'           => 'Portion',
                 'portion_info'      => 'Mesure (portion)',
-                'optional_nutrients'=> 'Nutriments Optionnels'
+                'optional_nutrients'=> 'Nutriments Optionnels',
+                'portion_quantity'  => 'Quantité par portion'
             ],
             'storage'   =>  [
                 'title'                 =>  'Conservation',

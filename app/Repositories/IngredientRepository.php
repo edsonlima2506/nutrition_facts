@@ -90,10 +90,10 @@ class IngredientRepository
         $data['supplier'] = $data['ingredient_supplier'];
         $data['company_id'] = $user->company_id;
         $data['ingredient_allergens_has_derivatives'] = isset($data['ingredient_allergens_has_derivatives']) ? true : false;
-        $data['unit_price'] = str_replace(',', '.', $data['unit_price']) ?? 0;
-        $data['price_kilo'] = str_replace(',', '.', $data['price_kilo']) ?? 0;
-        $data['correction_factor'] = str_replace(',', '.', $data['correction_factor']) ?? 0;
-        $data['revenue'] = str_replace(',', '.', $data['revenue']) ?? 0;
+        $data['unit_price'] = !empty($data['unit_price']) ? str_replace(',', '.', $data['unit_price']) : null;
+        $data['price_kilo'] = !empty($data['price_kilo']) ? str_replace(',', '.', $data['price_kilo']) : null;
+        $data['correction_factor'] = !empty($data['correction_factor']) ? str_replace(',', '.', $data['correction_factor']) : null;
+        $data['revenue'] = !empty($data['revenue']) ? str_replace(',', '.', $data['revenue']) : null;
         $data['nutritional_values'] = $this->extractNutritionalValues($data);
         $data['closed_storage_place'] = $this->processJsonString(data_get($data, 'closed_storage_place', []));
         $data['closed_storage_temperature'] = $this->processJsonString(data_get($data, 'closed_storage_temperature', []));

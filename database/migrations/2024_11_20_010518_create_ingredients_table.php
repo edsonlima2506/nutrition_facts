@@ -47,9 +47,14 @@ class CreateIngredientsTable extends Migration
             $table->json('opened_storage_temperature')->nullable();
             $table->string('opened_storage_temperature_custom')->nullable();
 
+            $table->string('table')->nullable();
+            $table->string('image')->nullable();
+
             $table->foreignId('company_id')
                 ->constrained()
                 ->onDelete('CASCADE');
+
+            $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

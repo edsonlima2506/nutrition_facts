@@ -10,6 +10,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Prologue\Alerts\Facades\Alert;
 
 /**
@@ -49,6 +50,7 @@ class IngredientCrudController extends CrudController
         
         CRUD::setCreateView(backpack_view('base.ingredient.crud.ingredient_crud'));
         CRUD::setEditView(backpack_view('base.ingredient.crud.ingredient_crud'));
+        CRUD::setShowView(backpack_view('base.ingredient.crud.ingredient_show'));
 
         $this->ingredientService = resolve(IngredientService::class);
         
@@ -63,8 +65,18 @@ class IngredientCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id')->label('ID');
-        CRUD::column('name')->label(trans('crud.ingredient.fields.name'));
+        CRUD::addColumn([
+            'name'      => 'image',
+            'label'     => '',
+            'type'      => 'image',
+            'orderable' =>  false,
+            'prefix'    => 'storage/',
+            'height'    => '50px',
+            'width'     => '50px',
+            'radius'    => '50%'
+        ]);
+
+        CRUD::column('name')->label('Nome');
         CRUD::column('manufacturer')->label(trans('crud.ingredient.fields.manufacturer'));
         CRUD::column('supplier')->label(trans('crud.ingredient.fields.supplier'));
 
@@ -73,7 +85,7 @@ class IngredientCrudController extends CrudController
             'label' =>  trans('crud.ingredient.fields.price'),
             'type'  =>  'closure',
             'function'  =>  function($entry) {
-                return '$' . $entry->unit_price;
+                return (!empty($entry->unit_price)) ? '$' . $entry->unit_price : '-';
             }
         ]);
 
@@ -82,18 +94,6 @@ class IngredientCrudController extends CrudController
 
     protected function setupFilters()
     {
-        $this->crud->addFilter(
-            [
-                'type'  => 'text',
-                'name'  => 'id',
-                'label' => trans('crud.ingredient.filters.id')
-            ], 
-            false, 
-            function($value) {
-                $this->crud->addClause('where', 'id', $value);
-            }
-        );
-
         $this->crud->addFilter(
             [
                 'type'  => 'text',
@@ -174,7 +174,14 @@ class IngredientCrudController extends CrudController
 
             $user = backpack_user();
 
-            $this->ingredientService->storeIngredient($requestData, $user);
+            $ingredient = $this->ingredientService->storeIngredient($requestData, $user);
+
+            if ($request->hasFile('ingredient_image')) {
+                $path = $request->file('ingredient_image')->store('ingredients', 'public');
+                $ingredient->image = $path;
+            }
+    
+            $ingredient->save();
 
             Alert::success(trans('backpack::crud.insert_success'))->flash();
 
@@ -231,6 +238,17 @@ class IngredientCrudController extends CrudController
             $model = $this->crud->getCurrentEntry();
 
             $this->ingredientService->updateIngredient($requestData, $user, $model);
+
+            if ($request->hasFile('ingredient_image')) {
+                if ($model->image && Storage::disk('public')->exists($model->image)) {
+                    Storage::disk('public')->delete($model->image);
+                }
+    
+                $path = $request->file('ingredient_image')->store('ingredients', 'public');
+                $model->image = $path;
+            }
+    
+            $model->save();
 
             Alert::success(trans('backpack::crud.insert_success'))->flash();
 

@@ -73,7 +73,9 @@ return [
                 'revenue_info'      => 'Prozentualer Anteil der nutzbaren Zutat',
 
                 'package'           => 'Verpackung',
-                'package_info'      => 'Art der Verpackung, in der die Zutat gekauft wird.'
+                'package_info'      => 'Art der Verpackung, in der die Zutat gekauft wird.',
+
+                'table'             => 'Datentabelle'
             ],
             'nutritional' => [
                 'title'             => 'Nährwert',
@@ -85,7 +87,8 @@ return [
                 'modal_add'         => 'Hinzufügen',
                 'portion'           => 'Portion',
                 'portion_info'      => 'Maß (Portion)',
-                'optional_nutrients'=> 'Optionale Nährstoffe'
+                'optional_nutrients'=> 'Optionale Nährstoffe',
+                'portion_quantity'  => 'Menge pro Portion'
             ],
             'storage'   =>  [
                 'title'                 =>  'Lagerung',

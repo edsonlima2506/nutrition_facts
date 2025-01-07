@@ -2,10 +2,6 @@
     @include(backpack_view('base.ingredient.crud.styles.nutritional_style'))
 @endpush
 
-@php
-    $inputs = App\Repositories\NutrientRepository::getMandatoryNutrients();
-@endphp
-
 {{-- SUBTITLE --}}
 <h4 class="step-subtitle">{{ trans('crud.ingredient.steps.nutritional.sub_title') }}</h4>
 <a class="youtube-tutorial-link" href="#">
@@ -52,6 +48,9 @@
 
     {{-- NUTRIENTS --}}
     <div class="row" style="gap: 22px">
+        @php
+            $inputs = App\Repositories\NutrientRepository::getMandatoryNutrients();
+        @endphp
         @foreach ($inputs as $input)
             @php
                 $field = data_get($input, 'name');
@@ -87,6 +86,39 @@
         <h4 class="step-subtitle">{{ trans('crud.ingredient.steps.nutritional.optional_nutrients') }}</h4>
     </div>
     <div class="optional-nutrient-fields row" style="gap: 22px">
+        @php
+            // Obter os nutrientes opcionais
+            $optionalNutrients = App\Repositories\NutrientRepository::getOptionalNutrients();
+            // Obter os nutrientes do ingrediente
+            $nutritionalValues = isset($entry) ? $entry->nutritional_values : [];
+        @endphp
+
+        @foreach ($optionalNutrients as $nutrient)
+            @php
+                $field = $nutrient['name'];
+                $label = $nutrient['label'];
+                $measureName = $nutrient['measure_name'];
+
+                $value = isset($nutritionalValues[$field]) ? $nutritionalValues[$field] : null;
+            @endphp
+
+            @if ($value !== null)
+                <div class="nutrient-card p-2">
+                    <p class="nutrient-title m-0">{{ $label }}</p>
+                    <hr class="mt-2">
+                    <input
+                        class="nutrient-input imask form-ingredient-input"
+                        data-mask="number"
+                        type="text"
+                        id="nutritional_{{ $field }}"
+                        name="nutritional_{{ $field }}"
+                        placeholder="0"
+                        value="{{ $value }}"
+                    >
+                    <h5 class="nutrient-measure">{{ $measure }}</h5>
+                </div>
+            @endif
+        @endforeach
         {{-- ADD NUTRIENT --}}
         <div class="add-nutrient-card p-2" data-toggle="modal" data-target="#newNutrientModal">
             <i class="las la-plus"></i>

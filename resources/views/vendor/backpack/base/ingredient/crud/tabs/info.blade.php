@@ -64,7 +64,29 @@
             value="{{ $value }}"
         >
     </div>
+
+    {{-- TABLE --}}
+    @if (backpack_user()->hasRole('super_admin'))
+        <div class="mb-3">
+            @php
+                $field = 'table';
+                $info = old($field, '');
+                $value = isset($entry) ? $entry->$field : $info;
+
+                $list = \App\Enum\IngredientTable::labels();
+            @endphp
+            <label for="{{ $field }}" class="form-label">
+                {{ trans('crud.ingredient.steps.info.table') }}
+            </label>
+            <select name="table" id="table" class="form-control">
+                @foreach ($list as $key => $item)
+                    <option value="{{ $key }}" @if($key == $value) selected @endif>{{ $item }}</option>
+                @endforeach
+            </select>
+        </div>
+    @endif
     
+    {{-- DETAILS --}}
     <div class="row mt-5">
         {{-- PRICE --}}
         <div class="mb-3 col-3">

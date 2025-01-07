@@ -52,13 +52,18 @@
             const hr = $('<hr>', { class: 'mt-2' });
             
             const inputField = $('<input>', {
-                class: 'nutrient-input imask',
+                class: 'nutrient-input imask form-ingredient-input',
                 type: 'text',
                 id: 'nutritional_' + data.nutrientName,
                 name: 'nutritional_' + data.nutrientName,
                 placeholder: '0',
                 value: data.nutrientValue,
-                'data-mask': 'number'
+                'data-mask': 'number',
+                change: function () {
+                    let inputId = $(this).attr('id');
+            
+                    $('#'+inputId+'_finish').html($(this).val());
+                }
             });
 
             const nutrientMeasureElement = $('<h5>', { class: 'nutrient-measure' }).text(data.nutrientMeasure);
@@ -117,19 +122,19 @@
         }
 
         function addNewNutrientTableRow(data) {
+            console.log(data);
             let row = $('<tr>')
                 .append($('<td>').html(data.nutrientLabel)
                 )
                 .append($('<td>').html(
-                    "<span class='finish-info'>"
+                    "<span class='finish-info' id='nutritional_" + data.nutrientName + "_finish'>"
                         + data.nutrientValue +
                     "</span>"
                     + ' ' +
                     data.nutrientMeasureLabel)
                 );
 
-            $("#finish-nutrtional-table").find('tbody')
-                .append(row);
+            $("#nutrtional-table").find('tbody').append(row);
         }
 
         function clearFormInputs() {

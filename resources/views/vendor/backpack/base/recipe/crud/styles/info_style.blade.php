@@ -45,7 +45,6 @@
         height: auto;
     }
 
-
     .clear-icon {
         position: absolute;
         top: 2px;

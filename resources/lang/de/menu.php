@@ -12,6 +12,7 @@ return [
     'ingredients'   =>  [
         'main'  =>  'Zutaten',
         'list'  =>  'Zutaten Auflisten',
-        'new'   =>  'Neu Registrieren'
+        'new'   =>  'Neu Registrieren',
+        'system'=>  'Zutaten IChef'
     ]
 ];

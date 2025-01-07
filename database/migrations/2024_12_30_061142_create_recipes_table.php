@@ -28,7 +28,6 @@ class CreateRecipesTable extends Migration
             $table->decimal('weight', 8, 2);
             $table->string('weight_unit');
             $table->string('description')->nullable();
-
             
             $table->timestamps();
         });

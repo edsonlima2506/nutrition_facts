@@ -372,7 +372,6 @@
 
 
 <script>
-    
     document.addEventListener('DOMContentLoaded', function () {
         let cropper = null;
         const fileInput = document.querySelector('.file-input');

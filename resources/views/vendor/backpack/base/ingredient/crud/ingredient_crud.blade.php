@@ -4,11 +4,6 @@
     @include(backpack_view('base.ingredient.crud.styles.create_style'))
 @endpush
 
-@push('after_scripts')
-    @include(backpack_view('helpers.imask'))
-    @include(backpack_view('base.ingredient.crud.modals.newNutrientModal'))
-@endpush
-
 @php
     $breadcrumbs = [
         trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
@@ -84,7 +79,7 @@
                         $url = url($crud->route.'/'.$entry->getKey());
                     }
                 @endphp
-                <form action="{{ $url }}" method="post">
+                <form action="{{ $url }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @if (isset($typeEdit))
                         {!! method_field('PUT') !!}
@@ -116,5 +111,7 @@
 @endsection
 
 @push('after_scripts')
+    @include(backpack_view('helpers.imask'))
+    @include(backpack_view('base.ingredient.crud.modals.newNutrientModal'))
     @include(backpack_view('base.ingredient.crud.scripts.crud_script'))
 @endpush
