@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CompanyCrudController;
 use App\Http\Controllers\Admin\IngredientCrudController;
 use App\Http\Controllers\Admin\IngredientSystemCrudController;
+use App\Http\Controllers\Admin\OrderCrudController;
 use App\Http\Controllers\Admin\RecipeCategoryCrudController;
 use App\Http\Controllers\Admin\RecipeCrudController;
 use App\Http\Controllers\LanguageController;
@@ -45,4 +46,5 @@ Route::group([
 
     Route::crud('recipe-category', RecipeCategoryCrudController::class);
     Route::crud('recipe', RecipeCrudController::class);
+    Route::crud('order', OrderCrudController::class);
 }); // this should be the absolute last line of this file

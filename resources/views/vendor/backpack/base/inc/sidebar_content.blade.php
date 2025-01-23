@@ -101,8 +101,23 @@
     </li>
 @endif
 
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon las la-mortar-pestle"></i> Produção
+    </a>
+    <ul class="nav-dropdown-items">
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i class="nav-icon las la-clipboard-list"></i> Listar Produções</a></li>
+    </ul>
+
+    <ul class="nav-dropdown-items">
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order/create') }}'><i class="nav-icon las la-plus-square"></i> Nova Produção</a></li>
+    </ul>
+</li>
+
+
 <div class="sidebar-social">
     <a href="#" class="icon"><i class="lab la-youtube"></i></a>
     <a href="#" class="icon"><i class="lab la-instagram"></i></a>
     <a href="#" class="icon"><i class="lab la-facebook-square"></i></a>
 </div>
+
