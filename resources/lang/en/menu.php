@@ -13,5 +13,16 @@ return [
         'list'  =>  'List Ingredients',
         'new'   =>  'Register New',
         'system'=>  'Ingredients IChef'
-    ]
+    ],
+    'recipes' => [
+        'main'  =>  'Recipes',
+        'list'  =>  'List Recipes',
+        'new'   =>  'Add Recipe',
+        'recipeCategory' => 'Categories'
+    ],
+    'orders'    =>  [
+        'main'  =>  'Production',
+        'list'  =>  'List Productions',
+        'new'   =>  'Add Production',
+    ],
 ];

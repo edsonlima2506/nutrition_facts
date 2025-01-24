@@ -25,7 +25,15 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'recipe_id' => 'required|integer|exists:recipes,id',
+            'start' => 'required|date',
+            'finish' => 'nullable|date|after_or_equal:start',
+            'user_id' => 'required|integer|exists:users,id',
+            'quantity' => 'nullable|numeric|min:0',
+            'final_weight' => 'nullable|numeric|min:0',
+            'fractionation' => 'nullable|string|max:255',
+            'purpose' => 'nullable|string|max:255',
+            'obs' => 'nullable|string|max:255',
         ];
     }
 

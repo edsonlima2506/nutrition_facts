@@ -67,6 +67,11 @@ class User extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

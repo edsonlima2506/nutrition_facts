@@ -46,5 +46,13 @@ Route::group([
 
     Route::crud('recipe-category', RecipeCategoryCrudController::class);
     Route::crud('recipe', RecipeCrudController::class);
-    Route::crud('order', OrderCrudController::class);
+    
+    
+    // Route::crud('order', OrderCrudController::class);
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('/events', [OrderCrudController::class, 'getEventsForMonth'])->name('order.getEventsForMonth');
+        Route::post('/dashboard/store', [OrderCrudController::class, 'dashboardStore']);
+        Route::crud('/', OrderCrudController::class);
+    });
+
 }); // this should be the absolute last line of this file

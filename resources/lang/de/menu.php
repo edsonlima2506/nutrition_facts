@@ -14,5 +14,16 @@ return [
         'list'  =>  'Zutaten Auflisten',
         'new'   =>  'Neu Registrieren',
         'system'=>  'Zutaten IChef'
-    ]
+    ],
+    'recipes' => [
+        'main'  =>  'Rezepte',
+        'list'  =>  'Rezepte Auflisten',
+        'new'   =>  'Rezept Hinzufügen',
+        'recipeCategory' => 'Kategorien'
+    ],
+    'orders'    =>  [
+        'main'  =>  'Produktion',
+        'list'  =>  'Produktionen auflisten',
+        'new'   =>  'Produktion hinzufügen',
+    ],
 ];

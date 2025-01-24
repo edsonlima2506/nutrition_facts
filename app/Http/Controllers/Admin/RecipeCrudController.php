@@ -63,7 +63,7 @@ class RecipeCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('id');
-        CRUD::column('name')->label(trans('crud.recipe.fields.name'));;
+        CRUD::column('name')->label(trans('crud.recipe.fields.name'));
         CRUD::column('recipe_category_id')
         ->label(trans('crud.recipe.fields.recipeCategory'))
         ->type('select')

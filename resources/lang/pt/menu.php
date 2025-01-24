@@ -13,5 +13,16 @@ return [
         'list'  =>  'Listar Ingredientes',
         'new'   =>  'Registrar Novo',
         'system'=>  'Ingredientes IChef'
-    ]
+    ],
+    'recipes' => [
+        'main'  =>  'Receitas',
+        'list'  =>  'Listar Receitas',
+        'new'   =>  'Adicionar Receita',
+        'recipeCategory' => 'Categorias'
+    ],
+    'orders'    =>  [
+        'main'  =>  'Produção',
+        'list'  =>  'Listar Produções',
+        'new'   =>  'Adicionar Produção',
+    ],
 ];

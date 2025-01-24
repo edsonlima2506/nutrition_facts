@@ -18,6 +18,20 @@ return [
         ]
     ],
 
+    'portion_unit' => [
+        'portions'      =>  'Porções',
+        'people'        =>  'Pessoas',
+        'units'         =>  'Unidades',
+        'liters'        =>  'Litros',
+        'milliliters'   =>  'Mililitros',
+        'grams'         =>  'Gramas'
+    ],
+
+    'weight_unit'   =>  [
+        'grams'         =>  'Gramas',
+        'kilograms'     =>  'Quilos'     
+    ],
+
     'food_table'    =>  [
         'ibge' => 'IBGE',
         'taco' => 'TACO',

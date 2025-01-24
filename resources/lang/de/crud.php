@@ -135,5 +135,103 @@ return [
                 'sub_title'                 =>  'Schritt 5: Abschluss',
             ]
         ]
-    ]
+    ],
+
+    'recipe' => [
+        'singular'          => 'Rezept',
+        'plural'            => 'Rezepte',
+        'recipeCategory'    => [
+            'singular'      => 'Kategorie',
+            'plural'        => 'Kategorien',
+        ],
+        'fields'    =>  [
+            'name'                          =>  'Name',
+            'name_placeholder'              =>  "Schreiben Sie zwischen '( )', um eine Anmerkung hinzuzufügen",
+            'category_placeholder'          => "Wählen Sie eine Kategorie",
+            'portion_placeholder'           => '1',
+            'weight_placeholder'            => '0,00',
+            'preparation_time_placeholder'  => 'Zubereitungsmethode',
+            'description'                   =>  'Beschreibung',
+            'color'                         =>  'Farbe',
+            'recipeCategory'                => 'Kategorie',
+            'created_at'                    => 'Erstellt am:',
+            'choice_ingredient'             => 'Wählen Sie Zutaten',
+            'quantity'                      => 'Menge',
+            'quantity_placeholder'          => 'Geben Sie die Menge ein',
+            'unit'                          => 'Einheit',
+            'method_item_placeholder'       => 'Geben Sie die Zubereitungsmethode ein'
+        ],
+        'filters'   =>  [
+            'id'            =>  'ID',
+            'name'  =>  'Name',
+            'category_name' => 'Kategorie'
+        ],
+        'steps'     =>  [
+            'info'          =>  [
+                'title'             =>  'Informationen',
+                'sub_title'         =>  'Schritt 1: Grundlegende Informationen',
+                'name'              =>  'Rezeptname',
+                'portion'           =>  'Portionen',
+                'preparation_time'  =>  'Zubereitungszeit',
+                'weight'       =>  'Rezeptgewicht',
+            ],
+            'ingredients'   =>  [
+                'title'             =>  'Zutaten',
+                'sub_title'         =>  'Schritt 2: Zutaten hinzufügen',
+                'unit'      =>  [
+                    'g'             =>  'Gramm (g)',
+                    'ml'            =>  'Milliliter (ml)',
+                    'unit'          =>  'Einheit'
+                ],
+                'button'    =>  [
+                    'add'           =>  'Zur Liste hinzufügen',
+                    'edit'          =>  'Bearbeiten',
+                    'remove'        =>  'Entfernen',
+                    'save'          =>  'Speichern'
+                ],
+                'notify'    =>  [
+                    'error_add_list'            =>  'Bitte wählen Sie eine Zutat, eine Menge und eine Einheit aus.',
+                    'error_edit_list'           =>  'Bitte füllen Sie die Menge aus und wählen Sie die Einheit.'  
+                ]
+            ],
+            'preparation_method'   =>  [
+                'title'                 =>  'Zubereitung',
+                'sub_title'             =>  'Schritt 3: Zubereitungsmethode',
+                'button'    =>  [
+                    'step'              =>  'Schritt'
+                ]
+            ],
+            'financial'     =>  [
+                'title'                     =>  'Finanziell',
+                'sub_title'                 =>  'Schritt 4: Finanzen',
+            ],
+            'nutritional'   =>  [
+                'title'             =>  'Nährwert',
+                'sub_title'         =>  'Schritt 5: Nährwerttabelle',
+            ],
+            'finish'        =>  [
+                'title'                     =>  'Abschließen',
+                'sub_title'                 =>  'Schritt 6: Abschluss',
+            ]
+        ]
+    ],
+
+    'order' => [
+        'singular'          => 'Produktion',
+        'plural'            => 'Produktionen',
+        'fields'    =>  [
+            'recipe_id'     =>  'Rezept',
+            'start'         =>  'Startdatum',
+            'finish'        =>  'Enddatum',
+            'user_id'       =>  'Verantwortlicher Benutzer',
+            'quantity'      =>  'Menge',
+            'final_weight'  =>  'Endgewicht',
+            'fractionation' =>  'Fraktionierung',
+            'purpose'       =>  'Zweck',
+            'obs'           =>  'Bemerkungen',
+            'created_at'    =>  'Erstellt am',
+            'updated_at'    =>  'Aktualisiert am'
+        ]
+    ],
+
 ];

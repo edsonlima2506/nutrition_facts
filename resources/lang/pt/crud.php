@@ -135,5 +135,103 @@ return [
                 'sub_title'                 =>  'Etapa 5: Finalização',
             ]
         ]
-    ]
+    ],
+
+    'recipe' => [
+        'singular'          => 'Receita',
+        'plural'            => 'Receitas',
+        'recipeCategory'    => [
+            'singular'      => 'Categoria',
+            'plural'        => 'Categorias'
+        ],
+        'fields'    =>  [
+            'name'                          =>  'Nome',
+            'name_placeholder'              =>  "Escreva entre '( )' para adicionar observação",
+            'category_placeholder'          => "Selecione uma categoria",
+            'portion_placeholder'           => '1',
+            'weight_placeholder'            => '0,00',
+            'preparation_time_placeholder'  => 'Modo de preparo',
+            'description'                   =>  'Descrição',
+            'color'                         =>  'Cor',
+            'recipeCategory'                => 'Categoria',
+            'created_at'                    => 'Criado em:',
+            'choice_ingredient'             => 'Escolha os ingredientes',
+            'quantity'                      => 'Quantidade',
+            'quantity_placeholder'          => 'Digite a quantidade',
+            'unit'                          => 'Unidade',
+            'method_item_placeholder'       => 'Digite o método de preparo'
+        ],
+        'filters'   =>  [
+            'id'            =>  'ID',
+            'name'  =>  'Nome',
+            'category_name' => 'Categoria'
+        ],
+        'steps'     =>  [
+            'info'          =>  [
+                'title'             =>  'Informações',
+                'sub_title'         =>  'Etapa 1: Informações Básicas',
+                'name'              =>  'Nome da Receita',
+                'portion'           =>  'Rendimento',
+                'preparation_time'  =>  'Tempo de preparo',
+                'weight'            =>  'Peso da Receita',
+            ],
+            'ingredients'   =>  [
+                'title'             =>  'Ingredientes',
+                'sub_title'         =>  'Etapa 2: Adicionar Ingredientes',
+                'unit'              =>  [
+                    'g'             =>  'Gramas (g)',
+                    'ml'            =>  'Mililitros (ml)',
+                    'unit'          =>  'Unidade'
+                ],
+                'button'    =>  [
+                    'add'           =>  'Adicionar à lista',
+                    'edit'          =>  'Editar',
+                    'remove'        =>  'Remover',
+                    'save'          =>  'Salvar'
+                ],
+                'notify'    =>  [
+                    'error_add_list'            =>  'Por favor, selecione um ingrediente, uma quantidade e escolha a unidade.',
+                    'error_edit_list'           =>  'Por favor, preencha a quantidade e escolha a unidade.'  
+                ]
+            ],
+            'preparation_method'   =>  [
+                'title'             =>  'Preparação',
+                'sub_title'         =>  'Etapa 3: Modo de Preparo',
+                'button'    =>  [
+                    'step'              =>  'Passo'
+                ]
+            ],
+            'financial'     =>  [
+                'title'             =>  'Financeiro',
+                'sub_title'         =>  'Etapa 4: Financeiro',
+            ],
+            'nutritional'   =>  [
+                'title'             =>  'Nutricional',
+                'sub_title'         =>  'Etapa 5: Tabela Nutricional',
+            ],
+            'finish'        =>  [
+                'title'             =>  'Finalizar',
+                'sub_title'         =>  'Etapa 6: Finalização',
+            ]
+        ]
+    ],
+
+    'order' => [
+        'singular'          => 'Produção',
+        'plural'            => 'Produções',
+        'fields'    =>  [
+            'recipe_id'     =>  'Receita',
+            'start'         =>  'Data de início',
+            'finish'        =>  'Data de fim',
+            'user_id'       =>  'Utilizador responsável',
+            'quantity'      =>  'Quantidade',
+            'final_weight'  =>  'Peso final',
+            'fractionation' =>  'Fracionamento',
+            'purpose'       =>  'Motivo',
+            'obs'           =>  'Observações',
+            'created_at'    =>  'Criado em',
+            'updated_at'    =>  'Atualizado em'
+        ]
+    ],
+
 ];

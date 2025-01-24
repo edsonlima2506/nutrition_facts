@@ -14,10 +14,15 @@ return [
         'new'   =>  'Add. Ingrediente',
         'system'=>  'Ingredientes IChef'
     ],
-    'recipes' => [
+    'recipes'   => [
         'main'  =>  'Receitas',
         'list'  =>  'Listar Receitas',
         'new'   =>  'Add. Receita',
         'recipeCategory' => 'Categorias'
+    ],
+    'orders'    =>  [
+        'main'  =>  'Produçao',
+        'list'  =>  'Listar Produções',
+        'new'   =>  'Add. Produção',
     ]
 ];

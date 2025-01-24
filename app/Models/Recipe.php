@@ -45,6 +45,11 @@ class Recipe extends Model
     {
         return $this->belongsTo(RecipeCategory::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'recipe_id');
+    }
     
 
     /*

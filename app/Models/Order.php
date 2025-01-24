@@ -19,9 +19,22 @@ class Order extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = [
+        'recipe_id',
+        'start',
+        'finish',
+        'user_id',
+        'quantity',
+        'final_weight',
+        'fractionation',
+        'purpose',
+        'obs',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $casts = [
+        'recipe_id' => 'integer',
+    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -34,6 +47,17 @@ class Order extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function recipe()
+    {
+        return $this->belongsTo(Recipe::class, 'recipe_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 
     /*
     |--------------------------------------------------------------------------

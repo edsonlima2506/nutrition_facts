@@ -101,18 +101,21 @@
     </li>
 @endif
 
-<li class="nav-item nav-dropdown">
-    <a class="nav-link nav-dropdown-toggle" href="#">
-        <i class="nav-icon las la-mortar-pestle"></i> Produção
-    </a>
-    <ul class="nav-dropdown-items">
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i class="nav-icon las la-clipboard-list"></i> Listar Produções</a></li>
-    </ul>
+@if (backpack_user()->can('access_orders'))
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon las la-mortar-pestle"></i> {{ trans('menu.orders.main') }}
+        </a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i class="nav-icon las la-clipboard-list"></i>  {{ trans('menu.orders.list') }}</a></li>
+        </ul>
 
-    <ul class="nav-dropdown-items">
-        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order/create') }}'><i class="nav-icon las la-plus-square"></i> Nova Produção</a></li>
-    </ul>
-</li>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order/create') }}'><i class="nav-icon las la-plus-square"></i>  {{ trans('menu.orders.new') }} </a></li>
+        </ul>
+    </li>
+@endif
+
 
 
 <div class="sidebar-social">

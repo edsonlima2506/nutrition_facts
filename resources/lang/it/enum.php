@@ -17,6 +17,21 @@ return [
             'low_content'       =>  'Basso Contenuto'
         ]
     ],
+    
+    'portion_unit' => [
+        'portions'      =>  'Porzioni',
+        'people'        =>  'Persone',
+        'units'         =>  'Unità',
+        'liters'        =>  'Litri',
+        'milliliters'   =>  'Millilitri',
+        'grams'         =>  'Grammi'
+    ],
+
+    'weight_unit'   =>  [
+        'grams'         =>  'Grammi',
+        'kilograms'     =>  'Chilogrammi'     
+    ],
+
 
     'food_table'    =>  [
         'ibge' => 'IBGE',

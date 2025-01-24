@@ -216,5 +216,23 @@ return [
             ]
         ]
 
+    ],
+
+    'order' => [
+        'singular'          => 'Produção',
+        'plural'            => 'Produções',
+        'fields'    =>  [
+            'recipe_id'     =>  'Receita',
+            'start'         =>  'Data de início',
+            'finish'        =>  'Data de fim',
+            'user_id'       =>  'Usuário responsável',
+            'quantity'      =>  'Quantidade',
+            'final_weight'  =>  'Peso final',
+            'fractionation' =>  'Porcionamento',
+            'purpose'       =>  'Motivo',
+            'obs'           =>  'Observações',
+            'created_at'    =>  'Criado em',
+            'updated_at'    =>  'Atualizado em'
+        ]
     ]
 ];
