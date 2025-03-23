@@ -8,5 +8,6 @@ return [
     'deliveries'            =>  'Consegne Oggi',
     'production'            =>  'Produzioni Oggi',
     'tutorial'              =>  'Video Tutorial',
-    'last_modifications'    =>  'Ultime Modifiche'
+    'last_modifications'    =>  'Ultime Modifiche',
+    'no_history'            =>  'Nessuna cronologia trovata'
 ];

@@ -6,10 +6,11 @@ use App\Enum\CompanyPattern;
 use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use App\Services\CompanyService;
+use App\Traits\CheckPermissions;
+use App\Traits\HandleLog;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Exception;
-use Illuminate\Http\Request;
 use Prologue\Alerts\Facades\Alert;
 
 /**
@@ -24,6 +25,8 @@ class CompanyCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+
+    use CheckPermissions, HandleLog;
 
     /**
      * @var \App\Services\CompanyService
@@ -52,6 +55,8 @@ class CompanyCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->checkIfUserHasPermission('access_companies');
+
         CRUD::column('id')->label('ID');
         CRUD::column('name')->label(trans('crud.company.fields.name'));
         
@@ -91,6 +96,8 @@ class CompanyCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        $this->checkIfUserHasPermission('access_companies');
+
         CRUD::setValidation(CompanyRequest::class);
 
         CRUD::field('name')
@@ -118,7 +125,7 @@ class CompanyCrudController extends CrudController
 
         CRUD::addField([
             'name'  => 'city',
-            'label' => trans('crud.company.fields.ciry'), 
+            'label' => trans('crud.company.fields.city'), 
             'type'  => 'text', 
         ]);
     }
@@ -131,11 +138,15 @@ class CompanyCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
+        $this->checkIfUserHasPermission('access_companies');
+
         $this->setupCreateOperation();
     }
 
     protected function setupShowOperation()
     {
+        $this->checkIfUserHasPermission('access_companies');
+
         $this->setupListOperation();
     }
 
@@ -152,20 +163,6 @@ class CompanyCrudController extends CrudController
     }
 
     /**
-     * @param Company $company
-     * 
-     * @return void
-     */
-    protected function checkIfUserBelongsCompany(Company $company): void
-    {
-        $user = backpack_user();
-
-        if ($user->company_id != $company->id) {
-            abort(403);
-        }
-    }
-
-    /**
      * @param CompanyRequest $request
      * @param Company $company
      */
@@ -177,6 +174,15 @@ class CompanyCrudController extends CrudController
 
             return redirect()->back();
         } catch (Exception $exception) {
+            $this->handleMessageLog(
+                'error',
+                __FUNCTION__,
+                "Update company fail, motive: {$exception->getMessage()}",
+                ['exception' => $exception, 'model' => $company],
+                '',
+                $exception
+            );
+
             Alert::error(trans('backpack::base.error_saving'))->flash();
 
             return redirect()->back();

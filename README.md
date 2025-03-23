@@ -1,7 +1,7 @@
 
-# Food Genius
+# IChef
 
-O projeto Food Genius é um SaaS destino ao gerenciamento de informações nutricionais, receitas e fichas técnicas.
+O projeto IChef é um SaaS destino ao gerenciamento de informações nutricionais, receitas e fichas técnicas.
 
 
 ## Instalação

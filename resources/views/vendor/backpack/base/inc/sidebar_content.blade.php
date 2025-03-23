@@ -47,8 +47,80 @@
     </li>
 @endcan
 
+@if (backpack_user()->can('access_ingredients'))
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon las la-bread-slice"></i> {{ trans('menu.ingredients.main') }}
+        </a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('ingredient') }}'>
+                    <i class="nav-icon las la-clipboard-list"></i> {{ trans('menu.ingredients.list') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('system/ingredients') }}'>
+                    <i class="nav-icon las la-clipboard-list"></i> {{ trans('menu.ingredients.system') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('ingredient/create') }}'>
+                    <i class="nav-icon las la-plus-square"></i> {{ trans('menu.ingredients.new') }}
+                </a>
+            </li>
+        </ul>
+    </li>
+@endif
+
+@if (backpack_user()->can('access_recipes'))
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon las la-concierge-bell"></i> {{ trans('menu.recipes.main') }}
+        </a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('recipe') }}'>
+                    <i class="nav-icon las la-clipboard-list"></i> {{ trans('menu.recipes.list') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('recipe/create') }}'>
+                    <i class="nav-icon las la-plus-square"></i> {{ trans('menu.recipes.new') }}
+                </a>
+            </li>
+
+            <li class='nav-item'>
+                <a class='nav-link' href='{{ backpack_url('recipe-category') }}'>
+                    <i class="nav-icon las la-bars"></i> {{ trans('menu.recipes.recipeCategory') }}
+                </a>
+            </li>
+        </ul>
+    </li>
+@endif
+
+@if (backpack_user()->can('access_orders'))
+    <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon las la-mortar-pestle"></i> {{ trans('menu.orders.main') }}
+        </a>
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order') }}'><i class="nav-icon las la-clipboard-list"></i>  {{ trans('menu.orders.list') }}</a></li>
+        </ul>
+
+        <ul class="nav-dropdown-items">
+            <li class='nav-item'><a class='nav-link' href='{{ backpack_url('order/create') }}'><i class="nav-icon las la-plus-square"></i>  {{ trans('menu.orders.new') }} </a></li>
+        </ul>
+    </li>
+@endif
+
+
+
 <div class="sidebar-social">
     <a href="#" class="icon"><i class="lab la-youtube"></i></a>
     <a href="#" class="icon"><i class="lab la-instagram"></i></a>
     <a href="#" class="icon"><i class="lab la-facebook-square"></i></a>
 </div>
+

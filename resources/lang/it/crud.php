@@ -3,7 +3,11 @@
 return [
     'global'    =>  [
         'created_at'    =>  'Creato Il',
-        'updated_at'    =>  'Aggiornato Il'
+        'updated_at'    =>  'Aggiornato Il',
+        'next_step'     =>  'Passaggio Successivo',
+        'back'          =>  'Tornare Indietro',
+        'need_help'     =>  'Hai bisogno di aiuto?',
+        'tutorial'      =>  'Esercitazione'
     ],
 
     'company'   =>  [
@@ -16,5 +20,219 @@ return [
             'state'     =>  'Stato',
             'city'      =>  'Città'
         ]
-    ]
+    ],
+
+    'ingredient'    =>  [
+        'singular'  =>  'Ingrediente',
+        'plural'    =>  'Ingredienti',
+        'fields'    =>  [
+            'name'                      =>  'Nome',
+            'name_placeholder'          =>  "Scrivi tra '( )' per aggiungere una nota",
+            'manufacturer'              =>  'Produttore',
+            'supplier'                  =>  'Fornitore',
+            'price'                     =>  'Prezzo',
+            'nutritional_information'   =>  'Informazioni Nutrizionali',
+            'seccondary_ingredients'    =>  'Ingredienti Secondari',
+            'allergens'                 =>  'Allergeni',
+            'closed_package'            =>  'Confezione Chiusa',
+            'opened_package'            =>  'Confezione Aperta'
+        ],
+        'filters'   =>  [
+            'id'            =>  'ID',
+            'name'          =>  'Nome',
+            'manufacturer'  =>  'Produttore',
+            'supplier'      =>  'Fornitore'
+        ],
+        'steps'     =>  [
+            'info' => [
+                'title'             => 'Informazioni',
+                'sub_title'         => 'Fase 1: Informazioni di Base',
+                'name'              => 'Nome dell\'Ingrediente',
+                'manufacturer'      => 'Produttore',
+                'supplier'          => 'Fornitore',
+
+                'price'             => 'Prezzo per Unità',
+                'price_info'        => 'Prezzo pagato per ogni unità di questo ingrediente',
+
+                'gross_weight'      => 'Peso Lordo',
+                'gross_weight_info' => 'Peso prima di qualsiasi scarto o pulizia dell\'ingrediente',
+                
+                'net_weight'        => 'Peso Netto',
+                'net_weight_info'   => 'Peso dell\'ingrediente dopo lo scarto o la pulizia',
+                
+                'loss'              => 'Perdita',
+                'loss_info'         => 'Peso perso durante il processo di scarto o pulizia',
+
+                'price_kilo'        => 'Prezzo per Kg/L',
+                'price_kilo_info'   => 'Prezzo pagato per ogni Kg/L',
+
+                'correction_factor' => 'Fattore di Correzione',
+                'correction_factor_info' => 'Numero che indica la perdita di peso che un alimento subisce durante la preparazione',
+
+                'revenue'           => 'Rendimento',
+                'revenue_info'      => 'Percentuale utilizzata dell\'ingrediente',
+
+                'package'           => 'Imballaggio',
+                'package_info'      => 'Tipo di imballaggio con cui l\'ingrediente è acquistato.',
+
+                'table'             =>  'Tavolo'
+            ],
+            'nutritional' => [
+                'title'             => 'Nutrizionale',
+                'sub_title'         => 'Fase 2: Tabella Nutrizionale',
+                'modal_title'       => 'Aggiungi Nutriente',
+                'modal_nutrient'    => 'Nutriente',
+                'modal_value'       => 'Valore',
+                'modal_close'       => 'Chiudere',
+                'modal_add'         => 'Aggiungere',
+                'portion'           => 'Porzione',
+                'portion_info'      => 'Misura (porzione)',
+                'optional_nutrients'=> 'Nutrienti Opzionali',
+                'portion_quantity'  => 'Quantità per porzione'
+            ],
+            'storage'   =>  [
+                'title'                 =>  'Conservazione',
+                'sub_title'             =>  'Fase 3: Conservazione',
+                'closed_package_label'  =>  'Conservazione Confezione Chiusa',
+                'opened_package_label'  =>  'Conservazione Confezione Aperta',
+                'storage_place'         =>  'Luogo di Conservazione',
+                'storage_temperature'   =>  'Temperatura di Conservazione',
+                
+                'dry_fresh'             =>  'Secco e Fresco',
+                'sheltered_the_sun'     =>  'Al riparo dal Sole',
+                'refrigerator'          =>  'Frigorifero',
+                'freezer'               =>  'Congelatore',
+                'custom'                =>  'Personalizzato',
+
+                'room_temperature' => [
+                    'celsius' => 'Fino a 25°C',
+                    'fahrenheit' => 'Fino a 77°F'
+                ],
+
+                'refrigerated' => [
+                    'celsius' => 'Da 1°C a 5°C',
+                    'fahrenheit' => 'Da 33,8°F a 41°F'
+                ],
+
+                'frozen' => [
+                    'celsius' => '-18°C',
+                    'fahrenheit' => '-0,4°F'
+                ]
+            ],
+            'allergens'     =>  [
+                'title'                     =>  'Allergeni',
+                'sub_title'                 =>  'Fase 4: Allergeni',
+                'allergens'                 =>  'Allergeni',
+                'contain'                   =>  'Contiene',
+                'allergens_derivatives'     =>  'Contiene Derivati',
+                'derivatives'               =>  'Derivati',
+                'maycontain'                =>  'Può Contenere',
+                'ingredients'               =>  'Ingredienti',
+                'and_derivatives'           =>  'e derivati'
+            ],
+            'finish'        =>  [
+                'title'                     =>  'Fine',
+                'sub_title'                 =>  'Fase 5: Finalizzazione',
+            ]
+        ]
+    ],
+
+    'recipe' => [
+        'singular'          => 'Ricetta',
+        'plural'            => 'Ricette',
+        'recipeCategory'    => [
+            'singular'      => 'Categoria',
+            'plural'        => 'Categorie',
+        ],
+        'fields'    =>  [
+            'name'                          =>  'Nome',
+            'name_placeholder'              =>  "Scrivi tra '( )' per aggiungere una nota",
+            'category_placeholder'          => "Seleziona una categoria",
+            'portion_placeholder'           => '1',
+            'weight_placeholder'            => '0,00',
+            'preparation_time_placeholder'  => 'Metodo di preparazione',
+            'description'                   =>  'Descrizione',
+            'color'                         =>  'Colore',
+            'recipeCategory'                => 'Categoria',
+            'created_at'                    => 'Creato il:',
+            'choice_ingredient'             => 'Scegli ingredienti',
+            'quantity'                      => 'Quantità',
+            'quantity_placeholder'          => 'Inserisci la quantità',
+            'unit'                          => 'Unità',
+            'method_item_placeholder'       => 'Inserisci il metodo di preparazione'
+        ],
+        'filters'   =>  [
+            'id'            =>  'ID',
+            'name'  =>  'Nome',
+            'category_name' => 'Categoria'
+        ],
+        'steps'     =>  [
+            'info'          =>  [
+                'title'             =>  'Informazioni',
+                'sub_title'         =>  'Passo 1: Informazioni di base',
+                'name'              =>  'Nome della ricetta',
+                'portion'           =>  'Porzione',
+                'preparation_time'  =>  'Tempo di preparazione',
+                'weight'       =>  'Peso della ricetta',
+            ],
+            'ingredients'   =>  [
+                'title'             =>  'Ingredienti',
+                'sub_title'         =>  'Passo 2: Aggiungere ingredienti',
+                'unit'      =>  [
+                    'g'             =>  'Grammi (g)',
+                    'ml'            =>  'Millilitri (ml)',
+                    'unit'          =>  'Unità'
+                ],
+                'button'    =>  [
+                    'add'           =>  'Aggiungi alla lista',
+                    'edit'          =>  'Modifica',
+                    'remove'        =>  'Rimuovi',
+                    'save'          =>  'Salva'
+                ],
+                'notify'    =>  [
+                    'error_add_list'            =>  'Per favore, seleziona un ingrediente, una quantità e scegli l\'unità.',
+                    'error_edit_list'           =>  'Per favore, completa la quantità e scegli l\'unità.'  
+                ]
+            ],
+            'preparation_method'   =>  [
+                'title'                 =>  'Preparazione',
+                'sub_title'             =>  'Passo 3: Metodo di preparazione',
+                'button'    =>  [
+                    'step'              =>  'Passo'
+                ]
+            ],
+            'financial'     =>  [
+                'title'                     =>  'Finanziario',
+                'sub_title'                 =>  'Passo 4: Finanziario',
+            ],
+            'nutritional'   =>  [
+                'title'             =>  'Nutrizionale',
+                'sub_title'         =>  'Passo 5: Tabella nutrizionale',
+            ],
+            'finish'        =>  [
+                'title'                     =>  'Completare',
+                'sub_title'                 =>  'Passo 6: Completamento',
+            ]
+        ]
+    ],
+
+    'order' => [
+        'singular'          => 'Produzione',
+        'plural'            => 'Produzioni',
+        'fields'    =>  [
+            'recipe_id'     =>  'Ricetta',
+            'start'         =>  'Data di inizio',
+            'finish'        =>  'Data di fine',
+            'user_id'       =>  'Utente responsabile',
+            'quantity'      =>  'Quantità',
+            'final_weight'  =>  'Peso finale',
+            'fractionation' =>  'Frazionamento',
+            'purpose'       =>  'Motivo',
+            'obs'           =>  'Osservazioni',
+            'created_at'    =>  'Creato il',
+            'updated_at'    =>  'Aggiornato il'
+        ]
+    ],
+
+
 ];

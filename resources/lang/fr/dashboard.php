@@ -4,9 +4,10 @@ return [
     'greeting'              =>  'Bonjour',
     'recipes'               =>  'Mes Recettes',
     'ingredients'           =>  'Mes Ingrédients',
-    'best_seller'           =>  'Meilleures Ventes',
+    'best_seller'           =>  'Meilleure Vente',
     'deliveries'            =>  'Livraisons Aujourd',
     'production'            =>  'Productions Aujourd',
     'tutorial'              =>  'Vidéos Tutoriels',
-    'last_modifications'    =>  'Dernières Modifications'
+    'last_modifications'    =>  'Dernières Modifications',
+    'no_history'            =>  'Aucun historique trouvél'
 ];

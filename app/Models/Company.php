@@ -34,6 +34,16 @@ class Company extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function recipe_categories()
+    {
+        return $this->hasMany(RecipeCategory::class);
+    }
+
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

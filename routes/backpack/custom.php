@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\CompanyCrudController;
+use App\Http\Controllers\Admin\IngredientCrudController;
+use App\Http\Controllers\Admin\IngredientSystemCrudController;
+use App\Http\Controllers\Admin\OrderCrudController;
+use App\Http\Controllers\Admin\RecipeCategoryCrudController;
+use App\Http\Controllers\Admin\RecipeCrudController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +31,28 @@ Route::group([
         Route::get('/my-company/{company}', [CompanyCrudController::class, 'myCompany'])->name('company.my_company');
         Route::post('/my-company/{company}', [CompanyCrudController::class, 'myCompanyUpdate'])->name('company.my_company.update');
     });
+
+
+    // Ingredients
+    // Route::crud('ingredient', IngredientCrudController::class);
+    Route::group([
+        'prefix' => 'ingredient'
+    ], function() {
+        Route::crud('/', IngredientCrudController::class);
+        Route::get('/search', [IngredientCrudController::class, 'searchIngredients'])->name('ingredient.searchIngredients');
+    });
+
+    Route::crud('system/ingredients', IngredientSystemCrudController::class);
+
+    Route::crud('recipe-category', RecipeCategoryCrudController::class);
+    Route::crud('recipe', RecipeCrudController::class);
+    
+    
+    // Route::crud('order', OrderCrudController::class);
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('/events', [OrderCrudController::class, 'getEventsForMonth'])->name('order.getEventsForMonth');
+        Route::post('/dashboard/store', [OrderCrudController::class, 'dashboardStore']);
+        Route::crud('/', OrderCrudController::class);
+    });
+
 }); // this should be the absolute last line of this file

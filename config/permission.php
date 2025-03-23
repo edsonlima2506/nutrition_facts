@@ -167,6 +167,10 @@ return [
         'access_ingredients'    =>  ['super_admin', 'client'],
 
         'access_companies'      =>  ['super_admin'],
-        'update_company'        =>  ['super_admin', 'client']
+        'update_company'        =>  ['super_admin', 'client'],
+
+        'access_ingredients'    =>  ['super_admin', 'client'],
+        'access_recipes'        =>  ['super_admin', 'client'],
+        'access_orders'         =>  ['super_admin', 'client']    
     ]
 ];
